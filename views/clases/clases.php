@@ -32,13 +32,15 @@
      
         <div class="clase centrar ">
         <h2 class="border clase_titulo">Clase</h2>
-        <ul>
-        <li><span class="negrilla">Nombre: </span> </li>
-        <li><span class="negrilla">Apellido:</span> </li>
-        <li><span class="negrilla">Código:</span> </li>
-        <li><span class="negrilla">Estado:</span> </li>
-        <li><span class="negrilla">Materia:</span> </li>
-        </ul>
+        <?php foreach($data["clases"] as $dato){
+            echo "<ul>";
+            echo "<li><span class='negrilla'>Nombre:</span>". $dato["names"]."</li>";
+            echo "<li><span class='negrilla'>Apellido:</span>".$dato["surname"]."</li>";
+            echo "<li><span class='negrilla'>Código:</span>".$dato["code"]."</li>";
+            echo "<li><span class='negrilla'>Estado:</span>".$dato["status"]."</li>";
+            echo "<li><span class='negrilla'>Materia:</span>".$dato["subject"]."</li>";
+            echo "</ul>";
+        }?>
         <a href="" class="boton_pequenio boton letra_mediana">Modificar</a>
         <a href="">Entrar</a>
         </div>
