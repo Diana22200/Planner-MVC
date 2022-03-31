@@ -39,10 +39,11 @@
             echo "<li><span class='negrilla'>Código:</span>".$dato["code"]."</li>";
             echo "<li><span class='negrilla'>Estado:</span>".$dato["status"]."</li>";
             echo "<li><span class='negrilla'>Materia:</span>".$dato["subject"]."</li>";
+            echo "<a href='' class='boton_pequenio boton letra_mediana'>Modificar</a>";
+            echo "<a href=''>Entrar</a>";
             echo "</ul>";
         }?>
-        <a href="" class="boton_pequenio boton letra_mediana">Modificar</a>
-        <a href="">Entrar</a>
+
         </div>
     </main>
 </body>
