@@ -14,7 +14,7 @@ class Database{
         $this->password ='';
         $this->charset ='utf8mb4';
     }
-    public static function connect(){
+    function connect(){
         try{
             $connection = "mysql:host=" . $this->host . ";dbname=" . $this->db . ";charset=" . $this->charset;
             $options = [
