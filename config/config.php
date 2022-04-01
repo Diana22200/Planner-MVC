@@ -1,4 +1,4 @@
 <?php
-define("CONTROLADOR_PRINCIPAL","Clases");
+define("CONTROLADOR_PRINCIPAL","Login");
 define("ACCION_PRINCIPAL","index");
 ?>

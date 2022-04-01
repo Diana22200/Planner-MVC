@@ -15,10 +15,8 @@ function CargarAccion($controller,$accion){
 
     if(isset($accion) && method_exists($controller, $accion)){
         $controller->$accion();
-        echo "archivo existe" . $accion;
     }else{
         $controller->ACCION_PRINCIPAL();
-        echo "metodo no existe" . $accion;
     }
 }
 ?>

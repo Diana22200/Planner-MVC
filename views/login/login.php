@@ -11,7 +11,7 @@
     <!--Iniciar sesión-->
     <a class="boton_naranja" href="index.html">Atrás</a>
     <h2 class="titulo">Inicio de sesión</h2>
-    <form action="#" method="POST">
+    <form id="login" name="login" method="POST" action="index.php?c=login&a=index" autocomplete="off">
         <section class="tabla">
             <p>Tipo de documento 
                 <div><select class="select" name="tipo_doc" id="">
@@ -32,6 +32,7 @@
             </p>
            <input class="boton button" type="submit" value="Iniciar sesión"> 
         </section>
+        ¿No tienes cuenta? <a href="">Registrarse</a>
     </form>
 </body>
 </html>

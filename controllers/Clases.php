@@ -7,5 +7,8 @@ class ClasesController{
 
         require_once "views/clases/clases.php";
     }
+    public function nuevo(){
+        require_once "views/clases/clases_nueva.php";
+    }
 }
 ?>
