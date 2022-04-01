@@ -8,16 +8,12 @@ class Clases_model{
         $this->clases = array();
     }
     //Mostrar clases
-    public function get_clases(){
-/*         $sql="SELECT class.id, class.code, names, surname,class.status, subject FROM user 
-        INNER JOIN surrogate_keys.document ON user.documentid = document.id 
-        INNER JOIN user_class ON user_class.Userid = user.id 
-        INNER JOIN class ON class.id = user_class.Classid 
-        WHERE num_doc = $num_doc AND acronym_doc = '$name_doc';"; */
+    public function get_clases($num_doc,$name_doc){
         $sql="SELECT class.id, class.code, names, surname,class.status, subject FROM user 
         INNER JOIN surrogate_keys.document ON user.documentid = document.id 
         INNER JOIN user_class ON user_class.Userid = user.id 
-        INNER JOIN class ON class.id = user_class.Classid;";
+        INNER JOIN class ON class.id = user_class.Classid 
+        WHERE num_doc = $num_doc AND acronym_doc = '$name_doc';";
         $resultado = $this->db->prepare($sql);
         $resultado->execute();
         while($row = $resultado->fetch(PDO::FETCH_ASSOC)){
