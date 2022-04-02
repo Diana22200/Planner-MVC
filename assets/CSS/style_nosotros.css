@@ -1,0 +1,267 @@
+/*styles de Planner*/
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-decoration: none;
+	border: none;
+	outline: none;
+}
+*, *::before,*::after{
+    box-sizing: border-box;
+}
+/*El primer color de fondo del body*/
+.fondo1{
+    background-color:#fff7e0;
+}
+.fondo2{
+    background-color:#ffebca;
+}
+/*Margen para el navegador*/
+nav{
+    margin: 10px;
+}
+/*Resaltar letra*/
+.negrilla{
+    font-weight: 900;
+}
+/*Tamaños de letra*/
+.letra_pequenia{
+    font-size: 16px;
+}
+.letra_mediana{
+    font-size: 21px;
+}
+.letra_grande{
+    font-size: 50px;
+}
+.letra_extragrande{
+    font-size: 70px;
+}
+/*centrar en general*/
+.centrar{
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+}
+/*botones en general*/
+.boton{
+    padding: 1px 1.4em;
+    margin:4px;
+    display: inline-block;
+}
+.boton:active {
+    transform: scale(.95);
+}
+
+/*Estilos principalmente de index.html*/
+
+/*Contenedor del eslogan*/
+.cont_eslogan{
+    position: relative;
+    width: 65%;
+}
+/*Parte página index de eslogan*/
+.eslogan{
+    background-color: #fad39a;
+    line-height: 210px;
+    width: 70%;
+    position: absolute;
+    bottom:150px;
+    display:inline-block;
+}
+/*botones naranjas en general, en especial los del navegador*/
+.boton_naranja{
+    background-color: #f4944c;
+    margin-left: 45px;
+    margin-right: 45px;
+    color: black;
+}
+.boton_naranja:hover{
+    background-color: #ee7842;
+}
+/*contenedor de más información acerca de promociones*/
+.cont_informacion{
+    position: relative;
+    width: 95%;
+}
+/*Contenido para obtener más información acerca de promociones*/
+.informacion-si{
+    background-color: #f8ba89;
+    /*display: inline-block;*/
+    padding: 80px 20px;
+    position:inherit;
+    bottom:280px;
+}
+
+
+/*Principalmente estilos de página "soy una persona natural"*/
+.promocion{
+    width: 20%;
+    padding: 20px;
+    margin: 10px;
+    display: inline-block;
+    background-image:url(https://i.postimg.cc/W4tbw8df/pexels-karolina-grabowska-5625116.jpg);
+    background-size: contain;
+    background-repeat:no-repeat;
+    color: white
+}
+/*formulario del paquete que le interesa*/
+.formulario{
+    background-color: #fcdab5;
+    width: 40%;
+    display: block;
+    padding: 30px;
+    margin:20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+/*boton de me interesa*/
+.interes{
+    display: block;
+    color: black;
+    border: black solid 4px;
+    background-color: beige;
+    width: 450px;
+}
+.interes:hover{
+    background-color: rgb(224, 224, 201);
+}
+.interes:active{
+    transform: scale(.95);
+}
+/*Introducción de la página persona natural*/
+.introduccion{
+    width:75%;
+}
+/*posicionamiento a la izquierda, en este caso del logo*/
+.izquierda{
+    position:absolute;
+    left:0;
+    top:10px;
+}
+/*posicionamiento a la izquierda del texto*/
+.text_left{
+    text-align: left;
+}
+/*Display inline-block*/
+.inline_block{
+    display: inline-block;
+}
+/*La cabecera que se ve cuando alguien inicia sesión*/
+.cabecera{
+    background-color: #ea681a;
+    padding: 10px;
+}
+/*El contenedor del menú de navegación cuando se inicia sesión*/
+.menu_perfil{
+    background-color: #fc9d4b;
+    padding: 20px;
+    width: 20%;
+    height: 543px;
+    float:left;
+    margin: 0;
+}
+/*El contenedor de la información del perfil (instructor)(imagen y lista)*/
+.cont_info_perfil{
+    margin-top:20px;
+    margin-left: 130px;
+}
+/*Estilo de los botones de navegación cuando se inicia sesión*/
+.boton_naranja2{
+    background-color:#dd5e17;
+    color:white;
+    box-shadow:4px 3px black;
+    margin:15px 0;
+}
+/*Información del perfil (lista)*/
+.info_perfil{
+    margin-left: 30px;
+    bottom: 185px;
+}
+/*La posición del logo cuando se inicia sesión*/
+.logo{
+    position: absolute;
+    right: 500px;
+    left:6px;
+    top: 3px;
+}
+/*el tipico subrayado de los links (ya que se quito al inicio el text-decoration)*/
+.link{
+    text-decoration:underline;
+}
+/*El div que contiene cada clase individualmente*/
+.clase{
+    border: 2px black solid;
+    display: inline-block;
+    width: 180px;
+    padding: 10px;
+    background-color: #ffdfb6;
+    margin: 15px;
+}
+/*El contenedor de las clases*/
+.cont_clases{
+    display: flex;
+    justify-content: center;
+}
+/*Este boton se creó para el "Entrar" que hay en las clases,
+ ya que los otros estilos generaban desbordamiento.*/
+.boton_pequenio{
+    color: black;
+    background-color:#fa9d57 ;
+}
+.boton_pequenio:hover{
+    background-color:#f6814a ;
+}
+/*un borde negro*/
+.border{
+    border:black solid 2px;
+}
+/*El nombre de la clase ("clase 1, clase 2")*/
+.clase_titulo{
+    background-color: #f76f21;
+    position: relative;
+    left: -12px;
+    top:-12px;
+    padding: 10px;
+    float:left;
+    width: 180px;
+    margin: 0;
+}
+/*estilo de los campos para ingresar información*/
+.input{
+    width: 95%;
+    margin: 10px 0px;
+}
+/*otra forma de poner elemento a la izquierda, ya que los anteriores se sobreponian*/
+.izquierda2{
+    float: left;
+}
+/*botón de atras oscuro y con letras blancas*/
+.atras{
+    background-color: #e35d16;
+    color: white;
+    margin: 15px;
+}
+/*Ocultar elementos*/
+.hide{
+    visibility: hidden;
+    display:hide;
+}
+
+.imgWrapper4, .imgWrapper3 {
+    font-size: 20;
+    text-align: center;
+}
+.imgWrapper4 .imgResponsiva,
+.imgWrapper3 .imgResponsiva {
+    display: inline-block;
+  /*  font-size: inherit; */
+}
+.imgWrapper4 .imgResponsiva {width: 35%; max-width: 345px;}
+.imgWrapper3 .imgResponsiva {width: 33.3%; max-width: 345px;}
+
+.imgResponsiva img {
+    height: auto;
+    width: 70%;
+}

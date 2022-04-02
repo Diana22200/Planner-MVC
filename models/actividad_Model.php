@@ -44,5 +44,24 @@ class actividad_Model{
         }
         return $this->actividad;
     }
+    // public function up_modificar_actividad($envio){
+    //     $id="3";
+    //     $sql="UPDATE surrogate_keys.activity SET 
+    //     title = '$title', description = '$description', deadline = '$deadline', link = '$link' 
+    //     WHERE id = $id";
+    //     $resultado = $this->db->prepare($sql);
+    //     $resultado->execute();
+    // }
+    public function get_modificar_actividad(){
+        $id_class="3";
+        $sql="SELECT code, description, deadline, title, status, id, link FROM activity
+        WHERE activity.id = $id_class;";
+        $resultado = $this->db->prepare($sql);
+        $resultado->execute();
+        while($fila = $resultado->fetch(PDO::FETCH_ASSOC)){
+            $this->actividad[] = $fila;
+        }
+        return $this->actividad;
+    }
 }
 ?>
