@@ -24,8 +24,7 @@
         <table id="tabla">
             <tbody>
                 <tr>
-                    <th colspan="1"><strong>ID</strong></th>
-                    <th colspan="1"><strong>ID ACTIVIDAD</strong></th>
+                    <th colspan="1"><strong>TÍTULO</strong></th>
                     <th colspan="1"><strong>NOMBRE APRENDIZ</strong></th>
                     <th colspan="1"><strong>APELLIDO APRENDIZ</strong></th>
                     <th colspan="1"><strong>NOTA</strong></th>
@@ -44,12 +43,11 @@
 
                 <?php foreach($data["actividad_calf"] as $dato){ ?>
                 <tr>
-                    <td class="obj_tabl"><?php echo $dato["Userid"] ?></td>
-                    <td class="obj_tabl"><?php echo $dato["Activityid"] ?></td>
-                    <td class="obj_tabl"><?php echo $dato["names"] ?></td>
-                    <td class="obj_tabl"><?php echo $dato["surname"] ?></td>
+                    <td class="obj_tabl"><?php echo $dato["title"] ?></td>
+                    <td class="obj2_tabl"><?php echo $dato["surname"] ?></td>
+                    <td class="obj2_tabl"><?php echo $dato["names"] ?></td>
                     <td class="obj_tabl"><?php echo $dato["score"] ?></td>
-                    <td class="obj_tabl"><a href="#?id=<?php echo $dato["Userid"] ?>" class="message_del">Calificar</a></td>
+                    <td class="obj_tabl"><a href="#?id=<?php echo $dato["title"] ?>" class="message_del">Calificar</a></td>
                 </tr>
                 <?php 
                 }?>

@@ -10,8 +10,14 @@ class actividad_Model{
     }
 
     public function get_actividad_calf(){
-        $sql="SELECT q.Userid, q.Activityid, u.names, u.surname, q.score 
-        FROM qualification q JOIN user u ON u.id = q.Userid ORDER BY q.Userid ASC;";
+        $id="3";
+        $sql="SELECT activity.title, user.names, user.surname, qualification.score 
+        FROM surrogate_keys.user 
+        INNER JOIN user_course ON user_course.Userid=user.id 
+        INNER JOIN course ON user_course.Courseid=course.id 
+        INNER JOIN qualification ON qualification.Userid=user.id 
+        INNER JOIN activity ON activity.id=qualification.Activityid 
+        WHERE course.code = 2251585 AND user.id = $id;";
         $resultado = $this->db->prepare($sql);
         $resultado->execute();
         while($row = $resultado->fetch(PDO::FETCH_ASSOC)){
@@ -20,7 +26,17 @@ class actividad_Model{
         return $this->actividad;
     }
     public function get_actividad_adm(){
-        $sql="SELECT code, deadline, title, status, id FROM activity;";
+        $sql="SELECT code, deadline, title, status, id FROM activity";
+        $resultado = $this->db->prepare($sql);
+        $resultado->execute();
+        while($row = $resultado->fetch(PDO::FETCH_ASSOC)){
+            $this->actividad[] = $row;
+        }
+        return $this->actividad;
+    }
+    public function get_clase_actividad(){
+        $sql="SELECT deadline, title, status, score FROM `activity` 
+        INNER JOIN qualification on activity.id=qualification.id;";
         $resultado = $this->db->prepare($sql);
         $resultado->execute();
         while($row = $resultado->fetch(PDO::FETCH_ASSOC)){

@@ -14,5 +14,17 @@ class actividad_Controller{
         
         require_once "views/actividades/Administrar_actividad.php";
     }
+    public function clase_1_actividad(){
+        require_once "models/actividad_Model.php";
+        $clase_act = new actividad_Model();
+        $data["clase_1"] = $clase_act->get_clase_actividad();
+        
+        require_once "views/actividades/Clase_1.php";
+    }
+    public function añadir_act(){
+        require_once "models/actividad_Model.php";
+        
+        require_once "views/actividades/añadir_actividad.php";
+    }
 }
 ?>
