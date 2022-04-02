@@ -7,7 +7,8 @@ require_once "controllers/Clases.php";
 if(isset($_GET['c'])){
     $controlador = cargarControlador($_GET['c']);
     if(isset($_GET['a'])){
-        cargarAccion($controlador, $_GET['a']);
+        if(isset($_GET['id'])){
+        cargarAccion($controlador, $_GET['a'], $_GET['id']);
     }else{
         cargarAccion($controlador, ACCION_PRINCIPAL);
     }
@@ -17,5 +18,6 @@ if(isset($_GET['c'])){
     $controlador = cargarControlador(CONTROLADOR_PRINCIPAL);
     $accionTmp = ACCION_PRINCIPAL;
     $controlador->$accionTmp();
+}
 }
 ?>

@@ -41,5 +41,36 @@ class Clases_model{
         VALUES ('$id_user',$class_id)");
             $resultado->execute();
     }
+    //Consulta para modificar
+    public function modificar($materia,$status,$id){
+			
+        $sql="UPDATE class SET subject='$materia',status='$status' WHERE id=$id";	
+        $resultado = $this->db->prepare($sql);
+        $resultado->execute();	
+    }
+    //Update 2
+    //Delete
+    public function eliminar($id){
+			
+        $sql="DELETE FROM class WHERE id=$id";	
+        $resultado = $this->db->prepare($sql);
+        $resultado->execute();	
+    }
+        //Obtener datos para modificar
+        public function get_clase($id)
+        {
+            $sql = "SELECT class.id, class.code, course.code as ficha, names, surname, subject FROM user 
+            INNER JOIN surrogate_keys.document ON user.documentid = document.id 
+            INNER JOIN user_class ON user_class.Userid = user.id 
+            INNER JOIN class ON class.id = user_class.Classid
+            INNER JOIN surrogate_keys.course_class ON course_class.id_class= class.id
+            INNER JOIN surrogate_keys.course ON course.id = course_class.id_course
+            WHERE class.id = $id;";
+            $resultado = $this->db->prepare($sql);
+            $resultado->execute();
+            $row = $resultado->fetch(PDO::FETCH_ASSOC);
+    
+            return $row;
+        }
 }
 ?>
