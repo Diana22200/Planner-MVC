@@ -9,11 +9,11 @@
 </head>
 <body class="fondo1 centrar">
     <!--Botón para volver a la página anterior-->
-    <a href="clases_instructor.php" class="boton_naranja boton letra_mediana izquierda">Atrás</a>
+    <a href="index.php?c=clases&a=index" class="boton_naranja boton letra_mediana izquierda">Atrás</a>
     <!--Título de la página-->
     <h1 class="letra_grande inline_block">Añadir clase</h1>
     <!--Formulario-->
-    <form class="formulario border letra_mediana" id="nuevo" name="nuevo" action=""  method="POST" autocomplete="off">
+    <form class="formulario border letra_mediana" id="nuevo" name="nuevo" action="index.php?c=clases&a=agregar"  method="POST" autocomplete="off">
         <ul class="text_left">
         
         <li><label>Materia:</label></li>

@@ -1,7 +1,6 @@
 <?php
 class Login_model{
     private $db;
-    private $cuentas;
 
     public function __construct(){
         $db = new Database();

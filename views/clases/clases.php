@@ -22,11 +22,11 @@
             <li><a href="" class="boton_naranja2  boton">Cronograma</a></li>
             <li><a href="" class="boton_naranja2  boton">Quejas y peticiones</a></li>
             <li><a href="" class="boton_naranja2  boton">Añadir clase</a></li>
-            <li><a href="" class="boton_naranja2  boton">Cerrar sesión</a></li>
+            <li><a href="index.php?c=login&a=index&cerrar_sesion=1" class="boton_naranja2  boton">Cerrar sesión</a></li>
         </ul>
     </nav>
     <!--Contenido principal de las clases en el perfil instructor-->
-        <a href="añadir_clase_instructor.php" class="boton_pequenio boton letra_mediana">Agregar</a>
+            <a href="index.php?c=clases&a=nuevo" class="boton_pequenio boton letra_mediana">Agregar</a>
     <main  class="cont_clases">
     <!--Clase 1-->
      
@@ -39,7 +39,7 @@
             echo "<li><span class='negrilla'>Código:</span>".$dato["code"]."</li>";
             echo "<li><span class='negrilla'>Estado:</span>".$dato["status"]."</li>";
             echo "<li><span class='negrilla'>Materia:</span>".$dato["subject"]."</li>";
-            echo "<a href='' class='boton_pequenio boton letra_mediana'>Modificar</a>";
+            echo "<a href='index.php?c=clases&a=show_modificar&id=".$dato["id"]."' class='boton_pequenio boton letra_mediana'>Modificar</a>";
             echo "<a href=''>Entrar</a>";
             echo "</ul>";
         }?>
