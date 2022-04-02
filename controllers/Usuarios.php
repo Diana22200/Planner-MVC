@@ -12,6 +12,23 @@ class UsuariosController{
 
         require_once "views/usuarios/perfil_admin.php";
     }
+    public function vinstructor(){
+        $usuarios = new Usuarios_model();
+        $num_doc = $_SESSION['numero_docu'];
+        $name_doc = $_SESSION['tipo_docu'];
+        $data["perfiles"] = $usuarios->get_perfiles($num_doc,$name_doc);
+
+        require_once "views/usuarios/perfil_instructor.php";
+    }
+    public function vaprendiz(){
+        $usuarios = new Usuarios_model();
+        $num_doc = $_SESSION['numero_docu'];
+        $name_doc = $_SESSION['tipo_docu'];
+        $data["perfiles"] = $usuarios->get_perfiles($num_doc,$name_doc);
+
+        require_once "views/usuarios/perfil_estu.php";
+    }
+    
     public function get_perfil(){
     require_once "views/usuarios/usuarios.php";
     }

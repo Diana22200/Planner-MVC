@@ -21,16 +21,16 @@ class LoginController{
             switch($_SESSION['rol']){
                 //administrador
                 case 1:
-                    header('location:perfil_admin.php');
+                    header('location:index.php?c=usuarios&a=index');
                 break;
                 //Aprendiz
                 case 2:
-                    header('location:perfil_estudiante.php');
+                    header('location:index.php?c=usuarios&a=vaprendiz');
         
                 break;
                 //Instructor
                 case 3:
-                    header('location:perfil_instructor.php');
+                    header('location:index.php?c=usuarios&a=vinstructor');
                 break;
                 default:
 
@@ -45,7 +45,6 @@ class LoginController{
             $password = $_POST['password'];
             $model = new Login_Model();
             $row= $model->signIn($tipo_doc, $num_doc, $password);
-            echo "<script> alert('Fila".$row."');</script>";
             if($row == true){
                 $rol = $row[9];
                 $_SESSION['rol']=$rol;
@@ -53,16 +52,16 @@ class LoginController{
                 switch($_SESSION['rol']){
                     //administrador
                     case 1:
-                        header('location:perfil_admin.php');
+                        header('location:index.php?c=usuarios&a=index');
                     break;
                     //Aprendiz
                     case 2:
-                        header('location:perfil_estudiante.php');
+                        header('location:index.php?c=usuarios&a=vaprendiz');
             
                     break;
                     //Instructor
                     case 3:
-                        header('location:perfil_instructor.php');
+                        header('location:index.php?c=usuarios&a=vinstructor');
                     break;
                     default:
                 }
