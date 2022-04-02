@@ -22,21 +22,24 @@ class Clases_model{
         return $this->clases;
     }
     //Añadir clases
-    public function insertar($num_doc,$name_doc, $materia, $ficha){
-        $random=rand(1000,9999); 
-/*         //Traer el id de la ficha
-        $resultado = $this->db->prepare("SELECT MIN(id) as id_f FROM course WHERE code=$ficha");
+    public function insertar($random,$materia){
+
+        $resultado = $this->db->prepare("INSERT INTO class(code, subject, status) 
+        VALUES ('$random','$materia','Activo')");;
         $resultado->execute();
-        $id_ficha =$dato['id_f'];
-        //Traer el id del usuario
-        $resultado = $this->db->prepare("SELECT MIN(id) as id_f FROM course WHERE code=$ficha");
-        $resultado->execute();
-        $id_ficha =$dato['id_us'];
-        //Insertar
-        $resultado = $this->db->prepare("SELECT MIN(id) as id_f FROM course WHERE code=$ficha");
-        $resultado->execute();
-        $id_ficha =$dato['id_us']; */
     }
-    
+    //Se añade el id a partir del código de la clase
+    public function get_id($random){
+        $resultado = $this->db->prepare("SELECT MIN(class.id) as id_class FROM surrogate_keys.class WHERE code = $random");
+        $resultado->execute();
+        $row = $resultado->fetch(PDO::FETCH_ASSOC);
+        $class_id = $row['id_class'];
+        return $class_id;
+    }    
+    public function insertar_user_class($id_user,$class_id){
+        $resultado = $this->db->prepare("INSERT INTO user_class(Userid, classid) 
+        VALUES ('$id_user',$class_id)");
+            $resultado->execute();
+    }
 }
 ?>
