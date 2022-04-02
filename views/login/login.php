@@ -32,7 +32,7 @@
             </p>
            <input class="boton button" type="submit" value="Iniciar sesión"> 
         </section>
-        ¿No tienes cuenta? <a href="">Registrarse</a>
+        ¿No tienes cuenta? <a href="index.php?c=login&a=registrarse">Registrarse</a>
     </form>
 </body>
 </html>

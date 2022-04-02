@@ -3,6 +3,7 @@ class LoginController{
 
     public function __construct(){
         require_once "models/LoginModel.php";
+        require_once "models/UsuariosModel.php";
     }
       /**
      * Inicializa la sesión
@@ -70,6 +71,34 @@ class LoginController{
                 echo "<script> alert('No se pudo ingresar. Por favor verifique los datos');</script>";
             }
         }
+    }
+    //Registro
+    public function registro(){
+        $usuarios = new Usuarios_model();
+
+        $name = $_POST['name'];
+        $surname = $_POST['surname'];
+        $roleid = $_POST['Roleid'];
+        $tipo_doc = $_POST['tipo_doc'];
+        $num_doc = $_POST['num_doc'];
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+        $password_two = $_POST['password_two'];
+        $id_doc = "";
+        //Verificar que las contraseñas coincida
+        if($password == $password_two){
+            //traer documento de documento
+        $id_doc=$usuarios->get_id_doc($tipo_doc);
+        //Insertar
+            $model = new Login_Model();
+            $model->registrar($num_doc,$id_doc,$name, $surname,$email,$password,$roleid);                  echo"<script>alert('Se creó el usuario correctamente'); window.history.go(-1);</script>";
+            echo"<script>alert('Se creó el usuario correctamente'); window.history.go(-2);</script>";
+        }else{
+            echo"<script>alert('Las contraseñas no coinciden'); window.history.go(-1);</script>";
+        }
+    }
+    public function registrarse(){
+        require_once "views/login/registrarse.php";
     }
 }
 ?>

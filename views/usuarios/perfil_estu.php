@@ -21,7 +21,7 @@
         <li><a href="cronograma_general.php" class="boton_naranja2  boton">Cronograma</a></li>
         <li><a href="Quejas_pet_estudiante.php" class="boton_naranja2  boton">Quejas y peticiones</a></li>
         <!-- <li><a href="anadir_clase_estudiante.php" class="boton_naranja2  boton">Añadir clase</a></li> -->
-        <li><a href="iindex.php?c=login&a=index&cerrar_sesion=1" class="boton_naranja2  boton">Cerrar sesión</a></li>
+        <li><a href="index.php?c=login&a=index&cerrar_sesion=1" class="boton_naranja2  boton">Cerrar sesión</a></li>
         </ul>
     </nav>
     <!--Información del perfil del estudiante-->

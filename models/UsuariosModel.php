@@ -30,5 +30,14 @@ class Usuarios_model{
         }
         return $this->perfiles;
     }
+        //obtener el id de documento
+        public function get_id_doc($tipo_doc){
+            $sql="SELECT MIN(document.id) as id_do FROM surrogate_keys.document WHERE acronym_doc= '$tipo_doc'";
+            $resultado = $this->db->prepare($sql);
+            $resultado->execute();
+            $row = $resultado->fetch(PDO::FETCH_ASSOC);
+            $id_doc = $row['id_do'];
+            return $id_doc;
+        }
 }
 ?>
