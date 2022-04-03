@@ -25,11 +25,12 @@
                 <tr>
                     <th colspan="1"><strong>FECHA</strong></th>
                     <th colspan="1"><strong>ACTIVIDAD</strong></th>
-                    <th colspan="1"><strong>ESTADO</strong></th>                </tr>
+                    <th colspan="1"><strong>ESTADO</strong></th>                
+                </tr>
                 <?php foreach($data["actividades"] as $dato){ ?>
                 <tr>
                     <td class="obj4_tabl"><?php echo $dato["deadline"];?></td>
-                    <td class="obj4_tabl"><a href="index.php?c=clases&a=index"><?php echo $dato["title"];?></a></td>
+                    <td class="obj4_tabl"><?php echo $dato["title"];?></td>
                     <td class="obj4_tabl"><?php echo $dato["status"];?></td>
                 </tr>
                 <?php

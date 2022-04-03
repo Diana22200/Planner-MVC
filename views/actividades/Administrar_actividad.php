@@ -16,7 +16,7 @@
     </header>
     <!--Menú de Cronograma-->
         <ul class="contenedor-lista-botones">
-        <li class="lista-botns"><a href="#" class="boton_naranja2 boton botn-izq">Atrás</a></li>
+        <li class="lista-botns"><a href="index.php?c=clases&a=index" class="boton_naranja2 boton botn-izq">Atrás</a></li>
         <li class="lista-botns lista-dos"><a href="#" class="boton_naranja2 boton botn-der">Añadir actividad</a></li>
         </ul>
     <!--Información del Cronograma-->

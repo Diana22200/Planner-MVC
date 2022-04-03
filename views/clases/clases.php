@@ -39,7 +39,7 @@
             echo "<li><span class='negrilla'>Estado:</span>".$dato["status"]."</li>";
             echo "<li><span class='negrilla'>Materia:</span>".$dato["subject"]."</li>";
             echo "<a href='index.php?c=clases&a=show_modificar&id=".$dato["id"]."' class='boton_pequenio boton letra_mediana'>Modificar</a>";
-            echo "<a href='index.php?c=actividades&a=index&id=".$dato["id"]."'>Entrar</a>";
+            echo "<a href='index.php?c=actividades&a=actividad_adm&id=".$dato["id"]."'>Entrar</a>";
             echo "</ul>";
         }?>
 

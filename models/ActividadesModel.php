@@ -11,14 +11,14 @@ class Actividades_model{
     public function show_act_inst($user_id,$code){
         $sql="SELECT `activity`.`id`,
         `activity`.`code`,
-            `activity`.`deadline`,
+        `activity`.`deadline`,
         `activity`.`title`,   
         `activity`.`status`
-    FROM `surrogate_keys`.`activity`
-    INNER JOIN `class` ON `class`.`id` =`activity`.classid
-    INNER JOIN `user_class` ON `user_class`.classid=`class`.`id`
-    INNER JOIN `user` ON `user`.id=`user_class`.Userid
-    WHERE`user`.`id`=$user_id AND `class`.`id`=$code;";
+        FROM `surrogate_keys`.`activity`
+        INNER JOIN `class` ON `class`.`id` =`activity`.classid
+        INNER JOIN `user_class` ON `user_class`.classid=`class`.`id`
+        INNER JOIN `user` ON `user`.id=`user_class`.Userid
+        WHERE`user`.`id`=$user_id AND `class`.`id`=$code;";
         $resultado = $this->db->prepare($sql);
         $resultado->execute();
         while($row = $resultado->fetch(PDO::FETCH_ASSOC)){
@@ -44,14 +44,25 @@ class Actividades_model{
         }
         return $this->actividad;
     }
-    public function get_actividad_adm(){
-        $sql="SELECT code, deadline, title, status, id FROM activity";
+    //Mostrar información de administrar actividades
+    public function get_actividad_adm($user_id,$id){
+        $sql="SELECT `class`.`id`,
+        user.names,
+            `activity`.`code`,
+                `activity`.`deadline`,
+            `activity`.`title`,   
+            `activity`.`status`
+        FROM `surrogate_keys`.`activity`
+        INNER JOIN `surrogate_keys`.`class` ON `class`.`id` =`activity`.classid
+        INNER JOIN `surrogate_keys`.`user_class` ON `user_class`.`classid` =`class`.`id`
+        INNER JOIN `surrogate_keys`.`user` ON `user`.id =`user_class`.Userid 
+        WHERE user.id=$user_id AND class.id=$id";
         $resultado = $this->db->prepare($sql);
         $resultado->execute();
         while($row = $resultado->fetch(PDO::FETCH_ASSOC)){
-            $this->actividad[] = $row;
+            $this->actividades[] = $row;
         }
-        return $this->actividad;
+        return $this->actividades;
     }
     public function get_clase_actividad(){
         $sql="SELECT deadline, title, status, score FROM `activity` 
