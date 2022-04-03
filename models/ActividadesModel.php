@@ -8,6 +8,7 @@ class Actividades_model{
         $this->db =$db->connect();
         $this->actividades = array();
     }
+    //filtra las actividades para administrar
     public function show_act_inst($user_id,$code){
         $sql="SELECT `activity`.`id`,
         `activity`.`code`,
@@ -46,7 +47,7 @@ class Actividades_model{
     }
     //Mostrar información de administrar actividades
     public function get_actividad_adm($user_id,$id){
-        $sql="SELECT `class`.`id`,
+        $sql="SELECT `activity`.`id`,
         user.names,
             `activity`.`code`,
                 `activity`.`deadline`,
@@ -81,17 +82,33 @@ class Actividades_model{
     //     WHERE id = $id";
     //     $resultado = $this->db->prepare($sql);
     //     $resultado->execute();
-    // }
-    public function get_modificar_actividad(){
-        $id_class="3";
-        $sql="SELECT code, description, deadline, title, status, id, link FROM activity
+    // 
+
+    //obtener los datos para modificar
+    public function get_modificar_actividad($id_class){
+        $sql="SELECT activity.code, description, deadline, 
+        title, activity.status, activity.id,class.id as id_class, link 
+        FROM activity
+        INNER JOIN `surrogate_keys`.`class` ON `class`.`id` =`activity`.classid
         WHERE activity.id = $id_class;";
         $resultado = $this->db->prepare($sql);
         $resultado->execute();
-        while($fila = $resultado->fetch(PDO::FETCH_ASSOC)){
-            $this->actividad[] = $fila;
-        }
-        return $this->actividad;
+        $row = $resultado->fetch(PDO::FETCH_ASSOC);
+        
+        return $row;
+    }
+    //Modificar actividad
+    public function modificar($title,$description,$deadline,$link,$id,$status,$tipo){
+        $sql="UPDATE surrogate_keys.activity 
+        SET title = '$title', 
+        description = '$description', 
+        deadline = '$deadline',
+        `type` = '$tipo',
+         link = '$link',
+        `status` = '$status'
+        WHERE id = $id";	
+        $resultado = $this->db->prepare($sql);
+        $resultado->execute();
     }
 }
 ?>

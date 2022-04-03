@@ -39,7 +39,7 @@
                     <td class="act_tabl"><?php echo $dato["title"];?></td>
                     <td class="estad_tabl"><?php echo $dato["status"];?></td>
                     <td class="obj_tabl"><a href="#?id=<?php echo $dato["id"];?>" class="act_del">Eliminar</a></td>
-                    <td class="obj_tabl"><a href="#?id=<?php echo $dato["id"];?>" class="act_mod">Modificar</a></td>
+                    <td class="obj_tabl"><a href="index.php?c=actividades&a=show_modificar&id=<?php echo $dato["id"];?>" class="act_mod">Modificar</a></td>
                     <td class="obj_tabl"><a href="#?id=<?php echo $dato["id"];?>" class="act_cal">Calificar</a></td>
                 
                 <tr>
