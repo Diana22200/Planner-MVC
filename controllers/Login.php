@@ -3,6 +3,7 @@ class LoginController{
 
     public function __construct(){
         require_once "models/LoginModel.php";
+        require_once "models/UsuariosModel.php";
     }
       /**
      * Inicializa la sesión
@@ -21,16 +22,16 @@ class LoginController{
             switch($_SESSION['rol']){
                 //administrador
                 case 1:
-                    header('location:perfil_admin.php');
+                    header('location:index.php?c=usuarios&a=index');
                 break;
                 //Aprendiz
                 case 2:
-                    header('location:perfil_estudiante.php');
+                    header('location:index.php?c=usuarios&a=vaprendiz');
         
                 break;
                 //Instructor
                 case 3:
-                    header('location:perfil_instructor.php');
+                    header('location:index.php?c=usuarios&a=vinstructor');
                 break;
                 default:
 
@@ -45,7 +46,6 @@ class LoginController{
             $password = $_POST['password'];
             $model = new Login_Model();
             $row= $model->signIn($tipo_doc, $num_doc, $password);
-            echo "<script> alert('Fila".$row."');</script>";
             if($row == true){
                 $rol = $row[9];
                 $_SESSION['rol']=$rol;
@@ -53,16 +53,16 @@ class LoginController{
                 switch($_SESSION['rol']){
                     //administrador
                     case 1:
-                        header('location:perfil_admin.php');
+                        header('location:index.php?c=usuarios&a=index');
                     break;
                     //Aprendiz
                     case 2:
-                        header('location:perfil_estudiante.php');
+                        header('location:index.php?c=usuarios&a=vaprendiz');
             
                     break;
                     //Instructor
                     case 3:
-                        header('location:perfil_instructor.php');
+                        header('location:index.php?c=usuarios&a=vinstructor');
                     break;
                     default:
                 }
@@ -71,6 +71,34 @@ class LoginController{
                 echo "<script> alert('No se pudo ingresar. Por favor verifique los datos');</script>";
             }
         }
+    }
+    //Registro
+    public function registro(){
+        $usuarios = new Usuarios_model();
+
+        $name = $_POST['name'];
+        $surname = $_POST['surname'];
+        $roleid = $_POST['Roleid'];
+        $tipo_doc = $_POST['tipo_doc'];
+        $num_doc = $_POST['num_doc'];
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+        $password_two = $_POST['password_two'];
+        $id_doc = "";
+        //Verificar que las contraseñas coincida
+        if($password == $password_two){
+            //traer documento de documento
+        $id_doc=$usuarios->get_id_doc($tipo_doc);
+        //Insertar
+            $model = new Login_Model();
+            $model->registrar($num_doc,$id_doc,$name, $surname,$email,$password,$roleid);                  echo"<script>alert('Se creó el usuario correctamente'); window.history.go(-1);</script>";
+            echo"<script>alert('Se creó el usuario correctamente'); window.history.go(-2);</script>";
+        }else{
+            echo"<script>alert('Las contraseñas no coinciden'); window.history.go(-1);</script>";
+        }
+    }
+    public function registrarse(){
+        require_once "views/login/registrarse.php";
     }
 }
 ?>

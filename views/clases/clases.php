@@ -1,4 +1,3 @@
-        
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -17,7 +16,7 @@
     <!--Menú de navegación instructor-->
     <nav class="inline_block menu_perfil letra_mediana">
         <ul>
-            <li><a href="" class="boton boton_naranja2">Mi perfil</a></li>
+            <li><a href="index.php?c=usuarios&a=vinstructor" class="boton boton_naranja2">Mi perfil</a></li>
             <li><a href="" class="boton_naranja2  boton">Clases</a></li>
             <li><a href="" class="boton_naranja2  boton">Cronograma</a></li>
             <li><a href="" class="boton_naranja2  boton">Quejas y peticiones</a></li>
@@ -40,7 +39,7 @@
             echo "<li><span class='negrilla'>Estado:</span>".$dato["status"]."</li>";
             echo "<li><span class='negrilla'>Materia:</span>".$dato["subject"]."</li>";
             echo "<a href='index.php?c=clases&a=show_modificar&id=".$dato["id"]."' class='boton_pequenio boton letra_mediana'>Modificar</a>";
-            echo "<a href=''>Entrar</a>";
+            echo "<a href='index.php?c=actividades&a=index&id=".$dato["id"]."'>Entrar</a>";
             echo "</ul>";
         }?>
 

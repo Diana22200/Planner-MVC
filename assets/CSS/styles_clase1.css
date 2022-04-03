@@ -1,0 +1,122 @@
+/*styles de Planner*/
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-decoration: none;
+	border: none;
+	outline: none;
+}
+*, *::before,*::after{
+    box-sizing: border-box;
+}
+/*El primer color de fondo del body*/
+.fondo1{
+    background-color:#fff7e0;
+}
+.fondo2{
+    background-color:#fff7e0;
+}
+/*Margen para el navegador*/
+nav{
+    margin: 10px;
+}
+/*Tamaños de letra*/
+.letra_mediana{
+    font-size: 21px;
+}
+.letra_grande{
+    font-size: 50px;
+}
+.letra_extragrande{
+    font-size: 70px;
+}
+/*centrar en general*/
+.centrar{
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+}
+/*botones en general*/
+.boton{
+    padding: 1px 1.4em;
+    margin:4px;
+    display: inline-block;
+}
+.boton:active {
+    transform: scale(.95);
+}
+
+.logo{
+    position: absolute;
+    right: 500px;
+    left:6px;
+    top: 3px;
+    width: 90px;
+}
+/*botones naranjas en general, en especial los del navegador*/
+
+.inline_block{
+    display: inline-block;
+}
+
+.cabecera{
+    background-color: #ea681a;
+    padding: 10px;
+}
+.menu_perfil{
+    background-color: #fc9d4b;
+    padding: 20px;
+    width: 20%;
+    height: 860px;
+    float:left;
+    margin: 0;
+}
+.cont_info_perfil{
+    margin-top:20px;
+    margin-left: 130px;
+}
+.boton_naranja2{
+    background-color:#dd5e17;
+    color:white;
+    box-shadow:4px 3px black;
+    margin:15px 0;
+}
+
+/*Estilos tabla del Cronograma*/
+
+#tabla {
+    border-collapse: collapse;
+}
+tbody {
+    background: white;
+}
+td, th {
+    border: black 2px solid;
+}
+tr th {
+    padding: 6px; 
+    text-align: center;
+}
+.clase-tabla {
+    float: center;
+}
+tr td {
+    padding: 6px; 
+    text-align: center; 
+    padding: 15px;
+}
+
+.obj4_tabl {
+    width: 220px;
+    height: 70px;
+}
+.obj3_tabl {
+    width: 350px;
+}
+.obj2_tabl {
+    width: 200px;
+}
+.obj_tabl {
+    width: 150px;
+}

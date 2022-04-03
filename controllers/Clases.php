@@ -72,8 +72,6 @@ class ClasesController{
     //Modificar clase
     public function modificar(){
         include_once ("database.php");
-        $num_doc = $_SESSION['numero_docu'];
-        $name_doc = $_SESSION['tipo_docu'];
         $materia = $_POST['materia'];
         $ficha = $_POST['ficha'];
         $ficha_actu = $_POST['ficha_actu'];

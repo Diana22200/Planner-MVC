@@ -18,7 +18,6 @@
         
         <li><label>Materia:</label></li>
         <li><input id="materia" name="materia" class="input border letra_pequenia"></li>
-
         <li><label>Ficha:</label></li>
         <li><input id="course" name="course" class="input border letra_pequenia"></li>
         

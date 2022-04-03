@@ -19,6 +19,13 @@ class Login_model{
         return $row;
 
             }
+    public function registrar($num_doc,$id_doc,$name, $surname,$email,$password,$roleid){
+        $resultado = $this->db->prepare("INSERT INTO surrogate_keys.user(num_doc,documentid,status,names,surname,url_prof_pic,email,password,Roleid)
+        VALUES ('$num_doc', $id_doc, 'Activo', '$name', '$surname',
+        'https://www.onusanmiguel.com/wp-content/uploads/2021/04/unnamed.jpg'
+        , '$email', '$password', '$roleid')");
+            $resultado->execute();
+    }
         }
         
 /* 
