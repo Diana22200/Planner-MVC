@@ -43,11 +43,13 @@
 
                 <?php foreach($data["actividad_calf"] as $dato){ ?>
                 <tr>
-                    <td class="obj_tabl"><?php echo $dato["title"] ?></td>
+                   <form>
+                    <td class="obj_tabl"> <?php echo $dato["title"] ?></td>
                     <td class="obj2_tabl"><?php echo $dato["surname"] ?></td>
                     <td class="obj2_tabl"><?php echo $dato["names"] ?></td>
-                    <td class="obj_tabl"><?php echo $dato["score"] ?></td>
+                    <td class="obj_tabl"><input name="" value="<?php echo $dato["score"] ?>"></td>
                     <td class="obj_tabl"><a href="#?id=<?php echo $dato["title"] ?>" class="message_del">Calificar</a></td>
+                    </form>
                 </tr>
                 <?php 
                 }?>

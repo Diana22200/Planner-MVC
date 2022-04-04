@@ -29,21 +29,24 @@ class Actividades_model{
     }
 
 
-    public function get_actividad_calf(){
-        $id="3";
-        $sql="SELECT activity.title, user.names, user.surname, qualification.score 
-        FROM surrogate_keys.user 
-        INNER JOIN user_course ON user_course.Userid=user.id 
-        INNER JOIN course ON user_course.Courseid=course.id 
-        INNER JOIN qualification ON qualification.Userid=user.id 
-        INNER JOIN activity ON activity.id=qualification.Activityid 
-        WHERE course.code = 2251585 AND user.id = $id;";
+    public function get_actividad_calf($id){
+        $sql="SELECT user.names,
+        user.surname,
+        `activity`.`title`,
+       /*Traerlo como hidden */ 
+       `qualification`.`id`,
+        `qualification`.`score`,
+        `qualification`.`Userid`
+    FROM `surrogate_keys`.`qualification`
+    INNER JOIN `user` ON `user`.id = qualification.Userid
+    INNER JOIN activity ON activity.id = qualification.Activityid
+        WHERE activity.id = $id ;";
         $resultado = $this->db->prepare($sql);
         $resultado->execute();
         while($row = $resultado->fetch(PDO::FETCH_ASSOC)){
-            $this->actividad[] = $row;
+            $this->actividades[] = $row;
         }
-        return $this->actividad;
+        return $this->actividades;
     }
     //Mostrar información de administrar actividades
     public function get_actividad_adm($user_id,$id){

@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="CSS/stylesb.css">
+    <link rel="stylesheet" href="assets/CSS/stylesb.css">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
@@ -10,7 +10,7 @@
 <body class="fondo2">
     <!--Cabecera-->
     <header class="cabecera centrar">
-    <img class="logo" src="https://i.postimg.cc/Gp03GJQR/LOGOSENApequenio.png">
+    <img class="logo" src="https://i.postimg.cc/Y2gQQ63p/logopequenito.png">
     <h1 class="inline_block letra_grande">Mi perfil</h1>
     </header>
     <!--Menú de navegación estudiante-->

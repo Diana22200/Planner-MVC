@@ -20,10 +20,11 @@ class ActividadesController{
         $data["actividades"] = $actividades->show_act_inst($user_id,$id);
             require_once "views/actividades/Clase_1.php";
     }
-
+    //Trae la información visual de modificar calificacion
     public function actividad_calf($id){
-        $actividad_get = new Actividades_Model();
-        $data["actividad_calf"] = $actividad_get->get_actividad_calf();
+        $actividades = new Actividades_Model();
+       
+        $data["actividad_calf"] = $actividades->get_actividad_calf($id);
         
         require_once "views/actividades/Calificar_actividad.php";
     }
