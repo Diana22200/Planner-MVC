@@ -20,7 +20,6 @@
             <li><a href="" class="boton_naranja2  boton">Clases</a></li>
             <li><a href="" class="boton_naranja2  boton">Cronograma</a></li>
             <li><a href="" class="boton_naranja2  boton">Quejas y peticiones</a></li>
-            <li><a href="" class="boton_naranja2  boton">Añadir clase</a></li>
             <li><a href="index.php?c=login&a=index&cerrar_sesion=1" class="boton_naranja2  boton">Cerrar sesión</a></li>
         </ul>
     </nav>
