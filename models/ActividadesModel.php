@@ -137,5 +137,20 @@ class Actividades_model{
       $resultado = $this->db->prepare($sql);
       $resultado->execute();
     }
+        //Eliminar nota de la actividad asociada
+        public function eliminar_nota($id){
+            $sql="DELETE FROM `surrogate_keys`.`qualification`
+            WHERE `qualification`.`Activityid`=$id;";
+            $resultado = $this->db->prepare($sql);
+            $resultado->execute();
+        }
+        //Eliminar actividad
+        public function eliminar_act($id){
+
+            $sql="DELETE FROM `surrogate_keys`.`activity`
+            WHERE id=$id;";
+            $resultado = $this->db->prepare($sql);
+            $resultado->execute();
+        }
 }
 ?>

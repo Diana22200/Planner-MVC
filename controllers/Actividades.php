@@ -102,6 +102,12 @@ class ActividadesController{
     //     $data["modificar_actividad"] = $actividad_mod_fun->get_modificar_actividad($id);
     //     require_once "views/actividades/modificar_actividad.php";
     // }
-
+    //Eliminar
+    public function eliminar($id){
+        $actividades = new Actividades_model();
+        $actividades->eliminar_nota($id);
+        $actividades->eliminar_act($id);
+        echo"<script>alert('Se eliminó la calificación correctamente'); window.history.go(-1);</script>";
+    }
 }
 ?>
