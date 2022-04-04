@@ -33,6 +33,7 @@
             <option value="Actividad">Actividad</option>
             <option value="Reunión">Reunión</option>
             <option value="Tarea">Tarea</option>
+            <option value="Evaluación">Evaluación </option>
             <option value="Otro">Otro</option>
             </select>
         </li>

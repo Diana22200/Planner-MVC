@@ -75,14 +75,6 @@ class Actividades_model{
         }
         return $this->actividad;
     }
-    // public function up_modificar_actividad($envio){
-    //     $id="3";
-    //     $sql="UPDATE surrogate_keys.activity SET 
-    //     title = '$title', description = '$description', deadline = '$deadline', link = '$link' 
-    //     WHERE id = $id";
-    //     $resultado = $this->db->prepare($sql);
-    //     $resultado->execute();
-    // 
 
     //obtener los datos para modificar
     public function get_modificar_actividad($id_class){
@@ -109,6 +101,30 @@ class Actividades_model{
         WHERE id = $id";	
         $resultado = $this->db->prepare($sql);
         $resultado->execute();
+    }
+    //Agregar actividad
+    public function agregar($code, $title, $description, $type, $deadline, $status, $link, $classid){
+    $sql="INSERT INTO `surrogate_keys`.`activity`
+        (`code`,
+        `title`,
+        `description`,
+        `type`,
+        `deadline`,
+        `status`,
+        `link`,
+        `classid`)
+        VALUES
+        (
+        $code,
+        '$title',
+        '$description',
+        '$type',
+        '$deadline',
+        '$status',
+        '$link',
+        $classid);";
+      $resultado = $this->db->prepare($sql);
+      $resultado->execute();
     }
 }
 ?>

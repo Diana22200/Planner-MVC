@@ -7,6 +7,7 @@ class ActividadesController{
         require_once "models/UsuariosModel.php";
         require_once "models/FichasModel.php";
     }
+
     public function index($id){
         
         $actividades = new Actividades_model();
@@ -26,6 +27,7 @@ class ActividadesController{
         
         require_once "views/actividades/Calificar_actividad.php";
     }
+    //Carga los datos de administrar actividad
     public function actividad_adm($id){
         $administrar_actividad = new Actividades_Model();
         $usuarios = new Usuarios_model();
@@ -43,8 +45,24 @@ class ActividadesController{
         
         require_once "views/actividades/Clase_1.php";
     }
-    public function añadir_act(){        
+    //Lleva a añadir actividad
+    public function anadir_act($id){  
+        $data["id"] = $id;
         require_once "views/actividades/añadir_actividad.php";
+    }
+    //Añade la actividad
+    public function anadir(){
+        $code=rand(1000,9999);
+        $title=$_POST['title'];
+        $description=$_POST['description'];
+        $type=$_POST['type'];
+        $deadline=$_POST['deadline'];
+        $status=$_POST['status'];
+        $link=$_POST['link'];
+        $classid=$_POST['classid'];
+        $actividades = new Actividades_model();
+        $actividades->agregar($code, $title, $description, $type, $deadline, $status, $link, $classid);
+        echo"<script>alert('Se Añadió la clase correctamente'); window.history.go(-2);</script>";
     }
     //obtener los datos de modificar    
     public function show_modificar($id){
