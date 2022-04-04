@@ -35,5 +35,13 @@ class Fichas_model{
         $resultado = $db->connect()->prepare($mod_us_class);    
         $resultado->execute();
     }
+    //Eliminar ficha cuando se elimina el usuario{
+        public function del_ficha_us($id){
+
+            $sql="DELETE user_course 
+            FROM user_course WHERE user_course.Userid = $id";
+            $resultado = $this->db->prepare($sql);
+            $resultado->execute();
+    }
 }
 ?>

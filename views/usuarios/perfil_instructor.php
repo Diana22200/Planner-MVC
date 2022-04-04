@@ -18,7 +18,7 @@
         <ul>
             <li><a href="index.php?c=usuarios&a=vinstructor" class="boton boton_naranja2">Mi perfil</a></li>
             <li><a href="index.php?c=clases&a=index" class="boton_naranja2  boton">Clases</a></li>
-            <li><a href="cronograma_general_instructor.php" class="boton_naranja2  boton">Cronograma</a></li>
+            <li><a href="index.php?c=actividades&a=get_cronograma_inst" class="boton_naranja2  boton">Cronograma</a></li>
             <li><a href="index.php?c=mensaje&a=recibido" class="boton_naranja2  boton">Quejas y peticiones</a></li>
             <li><a href="index.php?c=login&a=index&cerrar_sesion=1" class="boton_naranja2  boton">Cerrar sesión</a></li>
         </ul>

@@ -16,9 +16,8 @@
     <nav class="inline_block menu_perfil letra_mediana">
         <ul>
         <li><a href="index.php?c=usuarios&a=index" class="boton boton_naranja2">Mi perfil</a></li>
-        <li><a href="eliminar_usuario.php" class="boton_naranja2  boton">Eliminar usuario</a></li>
-        <li><a href="crear_admin.php" class="boton_naranja2  boton">Crear administrador</a></li>
-        <li><a href="mod_usuario.php" class="boton_naranja2  boton">Modificar usuario</a></li>
+        <li><a href="index.php?c=actividades&a=get_usuario_adm" class="boton_naranja2  boton">administrar usuarios</a></li>
+        <li><a href="index.php?c=usuarios&a=registro" class="boton_naranja2  boton">Crear administrador</a></li>
         <li><a href="index.php?c=mensaje&a=recibido" class="boton_naranja2  boton">Quejas y peticiones</a></li>
         <li><a href="index.php?c=login&a=index&cerrar_sesion=1" class="boton_naranja2  boton">Cerrar sesión</a></li>
         </ul>

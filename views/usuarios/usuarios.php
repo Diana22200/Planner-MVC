@@ -45,13 +45,17 @@
                     <th colspan="1"><strong>ELIMINAR</strong></th>
                  </tr>
             <tr>
+            <?php foreach($data["perfiles"] as $row){?>
                 <td><?php echo $row["acronym_doc"];?></td>
                 <td><?php echo $row["num_doc"];?></td>
                 <td><?php echo $row["names"];?></td>
                 <td><?php echo $row["surname"];?></td>
                 <td><?php echo $row["type"];?></td>
-                <td><a href="actu_mod_user.php?id=<?php echo $row["id"];?>" class="table_del">Modificar</a></td>
-                <td><a href="" class="table_del">Eliminar</a></td>
+                <td><a href="index.php?c=usuarios&a=modificar&id=<?php echo $row["id"];?>" class="table_del">Modificar</a></td>
+                <td><a href="index.php?c=usuarios&a=eliminar&id=<?php echo $row["id"];?>" class="table_del">Eliminar</a></td>
+                </ul>
+        <?php 
+            }?>
             </tr>
             </tbody>
         </table>
