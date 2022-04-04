@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="CSS/admin_style.css">
+    <link rel="stylesheet" href="assets/CSS/admin_style.css">
     <title>Registrarse</title>
 </head>
 <body>      
     <!--Se DEBE poner el perfil_administrador-->
-    <a class= "boton boton_pequenio" href="index.html">Atrás</a>
+    <a class= "boton boton_pequenio" href="index.php?c=login&a=index">Atrás</a>
     <h2>Registrarse</h2>
     <form class="tabla"  action="index.php?c=login&a=registro" method="POST">
             <div>Nombres: <input name="name" type="text" placeholder="Ingrese nombres"></div>

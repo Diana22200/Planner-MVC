@@ -15,8 +15,7 @@
     <!--Menú de Cronograma-->
     <nav class="inline_block menu_perfil letra_mediana">
         <ul>
-        <li><a href="#" class="boton_naranja2  boton">Atrás</a></li>
-        <li><a href="#" class="boton_naranja2  boton">Añadir Actividad</a></li>
+        <li><a href="#" onclick="javascript:history.go(-1)" class="boton_naranja2  boton">Atrás</a></li>
         </ul>
     </nav>
     <!--Información del Cronograma-->
@@ -30,24 +29,17 @@
                     <th colspan="1"><strong>NOTA</strong></th>
                     <th colspan="1"><strong>CALIFICAR</strong></th>
                 </tr>
-                <!-- < foreach($data["actividad_calf"] as $dato){ 
-                echo "<tr>"
-                echo    "<td class="obj_tabl">".$dato["Userid"]."</td>";
-                echo    "<td class="obj_tabl">".$dato["Activityid"]."</td>";
-                echo    "<td class="obj_tabl">".$dato["names"]."</td>";
-                echo    "<td class="obj_tabl">".$dato["surname"]."</td>";
-                echo    "<td class="obj_tabl">".$dato["score"]."</td>";
-                echo   "<td class="obj_tabl"><a class="act_cal" href='index.php?c=actividad_Controller&a=modif_act'>Calificar</a>".$dato["Userid"]."</td>";
-                echo "</tr>"
-                } -->
-
                 <?php foreach($data["actividad_calf"] as $dato){ ?>
                 <tr>
-                    <td class="obj_tabl"><?php echo $dato["title"] ?></td>
+                   <form action="index.php?c=actividades&a=calificar" method="POST">
+                   <!--id de calificacion-->
+                   <input name="id_calificacion" type="hidden" value="<?php echo $dato["id"] ?>">
+                    <td class="obj_tabl"> <input name="title" value="<?php echo $dato["title"] ?>"disabled></td>
+                    <td class="obj2_tabl"><?php echo $dato["names"]?></td>
                     <td class="obj2_tabl"><?php echo $dato["surname"] ?></td>
-                    <td class="obj2_tabl"><?php echo $dato["names"] ?></td>
-                    <td class="obj_tabl"><?php echo $dato["score"] ?></td>
-                    <td class="obj_tabl"><a href="#?id=<?php echo $dato["title"] ?>" class="message_del">Calificar</a></td>
+                    <td class="obj_tabl"><input name="score" value="<?php echo $dato["score"] ?>"></td>
+                    <td class="obj_tabl"><input type="submit" value="Calificar" class="message_del"></td>
+                    </form>
                 </tr>
                 <?php 
                 }?>

@@ -39,7 +39,6 @@ class LoginController{
         }
         
         if(isset($_POST['tipo_doc']) && isset($_POST['num_doc'])&& isset($_POST['password'])){
-            echo "<script> alert('ENTRÓ');</script>";
 
             $tipo_doc = $_POST['tipo_doc'];
             $num_doc = $_POST['num_doc'];

@@ -15,8 +15,7 @@
     <!--Menú de Cronograma-->
     <nav class="inline_block menu_perfil letra_mediana">
         <ul>
-        <li><a href="clases_estudiante.php" class="boton_naranja2  boton">Atrás</a></li>
-        <li><a href="cronograma_general_estudiante.php" class="boton_naranja2  boton">Ver actividades</a></li>
+        <li><a href="index.php?c=clases&a=index" class="boton_naranja2  boton">Atrás</a></li>
         </ul>
     </nav>
     <!--Información del Cronograma-->
@@ -26,15 +25,13 @@
                 <tr>
                     <th colspan="1"><strong>FECHA</strong></th>
                     <th colspan="1"><strong>ACTIVIDAD</strong></th>
-                    <th colspan="1"><strong>ESTADO</strong></th>
-                    <th colspan="1"><strong>CALIFICACIÓN</strong></th>
+                    <th colspan="1"><strong>ESTADO</strong></th>                
                 </tr>
-                <?php foreach($data["clase_1"] as $dato){ ?>
+                <?php foreach($data["actividades"] as $dato){ ?>
                 <tr>
                     <td class="obj4_tabl"><?php echo $dato["deadline"];?></td>
                     <td class="obj4_tabl"><?php echo $dato["title"];?></td>
                     <td class="obj4_tabl"><?php echo $dato["status"];?></td>
-                    <td class="obj_tabl"><?php echo $dato["score"];?></td>
                 </tr>
                 <?php
                 }?>

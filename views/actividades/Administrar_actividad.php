@@ -16,9 +16,9 @@
     </header>
     <!--Menú de Cronograma-->
         <ul class="contenedor-lista-botones">
-        <li class="lista-botns"><a href="#" class="boton_naranja2 boton botn-izq">Atrás</a></li>
-        <li class="lista-botns lista-dos"><a href="#" class="boton_naranja2 boton botn-der">Añadir actividad</a></li>
-        </ul>
+        <li class="lista-botns"><a href="index.php?c=clases&a=index" class="boton_naranja2 boton botn-izq">Atrás</a></li>
+        <li class="lista-botns lista-dos"><a href="index.php?c=actividades&a=anadir_act&id=<?php echo $data["id"];?>" class="boton_naranja2 boton botn-der">Añadir actividad</a></li>
+    </ul>
     <!--Información del Cronograma-->
     <main  class="inline_block cont_info_perfil_admin">
         <table id="tabla">
@@ -38,9 +38,9 @@
                     <td class="obj_tabl"><?php echo $dato["deadline"];?></td>
                     <td class="act_tabl"><?php echo $dato["title"];?></td>
                     <td class="estad_tabl"><?php echo $dato["status"];?></td>
-                    <td class="obj_tabl"><a href="#?id=<?php echo $dato["id"];?>" class="act_del">Eliminar</a></td>
-                    <td class="obj_tabl"><a href="#?id=<?php echo $dato["id"];?>" class="act_mod">Modificar</a></td>
-                    <td class="obj_tabl"><a href="#?id=<?php echo $dato["id"];?>" class="act_cal">Calificar</a></td>
+                    <td class="obj_tabl"><a href="index.php?c=actividades&a=añadir_act&id=<?php echo $dato["id"];?>" class="act_del">Eliminar</a></td>
+                    <td class="obj_tabl"><a href="index.php?c=actividades&a=show_modificar&id=<?php echo $dato["id"];?>" class="act_mod">Modificar</a></td>
+                    <td class="obj_tabl"><a href="index.php?c=actividades&a=actividad_calf&id=<?php echo $dato["id"];?>" class="act_cal">Calificar</a></td>
                 
                 <tr>
                 <?php 

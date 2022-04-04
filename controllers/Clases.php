@@ -36,9 +36,6 @@ class ClasesController{
         //Variable de número al azar
         $random=rand(1000,9999);      
 
-        //Sentencias
-        $db = new Database();
-
         //Traer el id de la ficha
         $id_ficha=$fichas->get_id($ficha);
         
@@ -58,7 +55,6 @@ class ClasesController{
         $fichas->insertar_course_class($class_id,$id_ficha);
   
     echo"<script>alert('Se Añadió la clase correctamente'); window.history.go(-2);</script>";
-    echo"<script>alert('Algo salió mal. Por favor intente de nuevo'); window.history.go(-1);</script>";
     }
     //obtener los datos de modificar    
     public function show_modificar($id){
@@ -72,8 +68,6 @@ class ClasesController{
     //Modificar clase
     public function modificar(){
         include_once ("database.php");
-        $num_doc = $_SESSION['numero_docu'];
-        $name_doc = $_SESSION['tipo_docu'];
         $materia = $_POST['materia'];
         $ficha = $_POST['ficha'];
         $ficha_actu = $_POST['ficha_actu'];
@@ -83,8 +77,6 @@ class ClasesController{
         $fichas= new Fichas_model();
         $usuarios = new Usuarios_model();
         $clases = new Clases_model();
-        //trae la base de datos
-        $db = new Database();
         //Traer el id de la ficha nueva
         $id_ficha=$fichas->get_id($ficha);
         //Traer el id de la ficha actual

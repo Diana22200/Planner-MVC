@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <link rel="stylesheet" href="CSS/styleinicio.css">
+    <link rel="stylesheet" href="assets/CSS/styleinicio.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,7 +32,7 @@
             </p>
            <input class="boton button" type="submit" value="Iniciar sesión"> 
         </section>
-        ¿No tienes cuenta? <a href="index.php?c=login&a=registrarse">Registrarse</a>
+        <p class="centrar">¿No tienes cuenta? <a href="index.php?c=login&a=registrarse">Registrarse</a></p>
     </form>
 </body>
 </html>

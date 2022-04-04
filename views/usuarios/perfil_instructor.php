@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="assets/CSS/style.css">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil Instructor</title>
@@ -10,17 +10,16 @@
 <body class="fondo2">
     <!--Cabecera-->
     <header class="cabecera centrar">
-    <img class="logo" src="https://i.postimg.cc/Gp03GJQR/LOGOSENApequenio.png">
+    <img class="logo" src="https://i.postimg.cc/Y2gQQ63p/logopequenito.png">
     <h1 class="inline_block letra_grande">Mi perfil</h1>
     </header>
     <!--Menú de navegación instructor-->
     <nav class="inline_block menu_perfil letra_mediana">
         <ul>
-            <li><a href="perfil_instructor.php" class="boton boton_naranja2">Mi perfil</a></li>
-            <li><a href="clases_instructor.php" class="boton_naranja2  boton">Clases</a></li>
+            <li><a href="index.php?c=usuarios&a=vinstructor" class="boton boton_naranja2">Mi perfil</a></li>
+            <li><a href="index.php?c=clases&a=index" class="boton_naranja2  boton">Clases</a></li>
             <li><a href="cronograma_general_instructor.php" class="boton_naranja2  boton">Cronograma</a></li>
-            <li><a href="Quejas_peticiones_remitente.php" class="boton_naranja2  boton">Quejas y peticiones</a></li>
-            <li><a href="añadir_clase_instructor.php" class="boton_naranja2  boton">Añadir clase</a></li>
+            <li><a href="index.php?c=mensaje&a=recibido" class="boton_naranja2  boton">Quejas y peticiones</a></li>
             <li><a href="index.php?c=login&a=index&cerrar_sesion=1" class="boton_naranja2  boton">Cerrar sesión</a></li>
         </ul>
     </nav>
