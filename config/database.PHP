@@ -8,10 +8,10 @@ class Database{
     private $charset;
 
     public function __construct(){
-        $this->host ='localhost:3307';
+        $this->host ='localhost';
         $this->db ='surrogate_keys';
         $this->user ='root';
-        $this->password ='losperritos22';
+        $this->password ='';
         $this->charset ='utf8mb4';
     }
     function connect(){
