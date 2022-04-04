@@ -87,6 +87,15 @@ class ActividadesController{
 
             echo"<script>alert('Se modifico la actividad correctamente'); window.history.go(-2);</script>";
     }
+    //Calificar
+    public function calificar(){
+        $score=$_POST['score'];
+        //id de califación
+        $id=$_POST['id_calificacion'];
+        $actividades = new Actividades_model();
+        $actividades->calificar($score,$id);
+        echo"<script>alert('Se añadió la calificación correctamente'); window.history.go(-1);</script>";
+    }
     // public function fn_modif_act($id){
     //     require_once "models/actividad_Model.php";
     //     $actividad_mod_fun = new actividad_Model();

@@ -28,15 +28,14 @@ class Actividades_model{
         return $this->actividades;
     }
 
-
+//cargar información de Calificar
     public function get_actividad_calf($id){
         $sql="SELECT user.names,
         user.surname,
         `activity`.`title`,
        /*Traerlo como hidden */ 
        `qualification`.`id`,
-        `qualification`.`score`,
-        `qualification`.`Userid`
+        `qualification`.`score`
     FROM `surrogate_keys`.`qualification`
     INNER JOIN `user` ON `user`.id = qualification.Userid
     INNER JOIN activity ON activity.id = qualification.Activityid
@@ -48,12 +47,21 @@ class Actividades_model{
         }
         return $this->actividades;
     }
+    //calificar model
+    public function calificar($score,$id){
+        $sql="UPDATE `surrogate_keys`.`qualification`
+        SET
+        `score` = $score
+        WHERE `id` = $id";
+        $resultado = $this->db->prepare($sql);
+        $resultado->execute();
+    }
     //Mostrar información de administrar actividades
     public function get_actividad_adm($user_id,$id){
         $sql="SELECT `activity`.`id`,
-        user.names,
+            user.names,
             `activity`.`code`,
-                `activity`.`deadline`,
+            `activity`.`deadline`,
             `activity`.`title`,   
             `activity`.`status`
         FROM `surrogate_keys`.`activity`
