@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="CSS/modi_style.css">
+    <link rel="stylesheet" href="assets/CSS/modi_style.css">
     <!-- Compiled and minified CSS -->
     
 
@@ -44,19 +44,19 @@
                     <th colspan="1"><strong>MODIFICAR</strong></th>
                     <th colspan="1"><strong>ELIMINAR</strong></th>
                  </tr>
+                 <?php foreach($data["perfiles"] as $row){?>
             <tr>
-            <?php foreach($data["perfiles"] as $row){?>
                 <td><?php echo $row["acronym_doc"];?></td>
                 <td><?php echo $row["num_doc"];?></td>
                 <td><?php echo $row["names"];?></td>
                 <td><?php echo $row["surname"];?></td>
                 <td><?php echo $row["type"];?></td>
-                <td><a href="index.php?c=usuarios&a=modificar&id=<?php echo $row["id"];?>" class="table_del">Modificar</a></td>
+                <td><a href="index.php?c=usuarios&a=get_us_adm_mod&id=<?php echo $row["id"];?>" class="table_del">Modificar</a></td>
                 <td><a href="index.php?c=usuarios&a=eliminar&id=<?php echo $row["id"];?>" class="table_del">Eliminar</a></td>
                 </ul>
-        <?php 
-            }?>
             </tr>
+            <?php 
+            }?>
             </tbody>
         </table>
     </main>

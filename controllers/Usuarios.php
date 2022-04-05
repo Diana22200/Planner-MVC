@@ -2,6 +2,7 @@
 class UsuariosController{
     public function __construct(){
         session_start();
+        require_once "models/LoginModel.php";
         require_once "models/ActividadesModel.php";
         require_once "models/UsuariosModel.php";
         require_once "models/MensajesModel.php";
@@ -39,13 +40,16 @@ class UsuariosController{
     }
     //obtener información de administrar usuarios
     public function get_usuario_adm(){
+        $usuarios = new Usuarios_model();
         $data["perfiles"] = $usuarios->get_usuario_adm();
-        require_once "views/usuarios/perfil_estu.php";
+        require_once "views/usuarios/usuarios.php";
     }
     //Obtener información modificar usuario
+
     public function get_us_adm_mod($id){
+        $usuarios = new Usuarios_model();
         $data["id"] = $id;
-        $data["perfiles"] = $usuarios->get_usuario_adm();
+        $data["perfiles"] = $usuarios->get_us_adm_mod($id);
         require_once "views/usuarios/usuarios_modifica.php";
     }
     //Modificar usuario
@@ -82,7 +86,7 @@ class UsuariosController{
         $clases->del_user_class($id);
 
          //Eliminar Ficha
-         $clases->del_ficha_us($id);
+         $fichas->del_ficha_us($id);
 
         //Eliminar calificaciones
         $actividades->eliminar_nota_us($id);
@@ -115,6 +119,7 @@ class UsuariosController{
         }else{
             echo"<script>alert('Las contraseñas no coinciden'); window.history.go(-1);</script>";
         }
+    }
         //Lleva a la página para llenar el formulario de registro de administrador
         public function registrar(){
             require_once "views/usuarios/crear_admin.php";

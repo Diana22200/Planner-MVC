@@ -39,7 +39,19 @@ class Usuarios_model{
             $id_doc = $row['id_do'];
             return $id_doc;
         }
-        //Obtener la información de los usuarios para eliminar y modificar
+        //Obtener la información de los usuarios para modificar
+        public function get_us_adm_mod($id){
+            $sql="SELECT acronym_doc, num_doc, names, surname, user.id,status, type 
+            FROM `surrogate_keys`.`user` INNER JOIN `surrogate_keys`.document ON user.documentid = document.id 
+            INNER JOIN surrogate_keys.role ON role.id = user.Roleid
+            WHERE user.id=$id";
+            $resultado = $this->db->prepare($sql);
+            $resultado->execute();
+            $row = $resultado->fetch(PDO::FETCH_ASSOC);
+
+            return $row;
+        }
+        //Obtener la información de los usuarios para modificar
         public function get_usuario_adm(){
             $sql="SELECT acronym_doc, num_doc, names, surname, user.id, type 
             FROM user INNER JOIN document ON user.documentid = document.id 

@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="CSS/admin_style.css">
+    <link rel="stylesheet" href="assets/CSS/admin_style.css">
     <title>Crear administrador</title>
 </head>
 <body>      
     <!--Se DEBE poner el perfil_administrador-->
-    <a class= "boton boton_pequenio" href="index.php?c=usuarios&a=registro">Atrás</a>
+    <a class= "boton boton_pequenio" href="index.php?c=usuarios&a=index">Atrás</a>
     <h2>Crear administrador</h2>
-    <form class="tabla"  action="procesar_crear_admin.php"  method="POST">
+    <form class="tabla"  action="index.php?c=usuarios&a=registro"  method="POST">
             <div>Nombres: <input name="name" type="text" placeholder="Ingrese nombres"></div>
             <div>Apellidos: <input name="surname" type="text" placeholder="Ingrese apellidos"></div>
                 <div>Tipo de documento: 

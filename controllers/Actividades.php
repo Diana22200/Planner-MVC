@@ -116,7 +116,6 @@ class ActividadesController{
             $num_doc = $_SESSION['numero_docu'];
             $name_doc = $_SESSION['tipo_docu'];
             $user_id = $usuarios->get_usuarios($num_doc,$name_doc);
-            $data["id"] = $id;
             $data["actividad_administrar"] = $administrar_actividad->get_cron_inst($user_id);
             
             require_once "views/actividades/Cronograma_inst.php";
