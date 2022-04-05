@@ -18,7 +18,7 @@
         <ul>
         <li><a href="index.php?c=usuarios&a=vaprendiz" class="boton boton_naranja2">Mi perfil</a></li>
         <li><a href="index.php?c=clases&a=clases_stu" class="boton_naranja2  boton">Clases</a></li>
-        <li><a href="cronograma_general.php" class="boton_naranja2  boton">Cronograma</a></li>
+        <li><a href="index.php?c=actividades&a=get_cronograma_est" class="boton_naranja2  boton">Cronograma</a></li>
         <li><a href="index.php?c=mensaje&a=recibido" class="boton_naranja2  boton">Quejas y peticiones</a></li>
         <!-- <li><a href="anadir_clase_estudiante.php" class="boton_naranja2  boton">Añadir clase</a></li> -->
         <li><a href="index.php?c=login&a=index&cerrar_sesion=1" class="boton_naranja2  boton">Cerrar sesión</a></li>
@@ -35,7 +35,7 @@
             <li><span class="negrilla">Correo:</span><?php echo $fila["email"];?></li>
             <li><span class="negrilla">Número de documento:</span><?php echo $_SESSION['numero_docu'];?></li>
             <li><span class="negrilla">Tipo de documento:</span><?php echo $_SESSION['tipo_docu'];?></li>
-            <li><a href="nombredoc.html" class="link">Cambiar Datos</a></li>
+<!--             <li><a href="nombredoc.html" class="link">Cambiar Datos</a></li> -->
         </ul>
         <?php 
             }?>

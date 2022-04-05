@@ -133,5 +133,16 @@ class ActividadesController{
             $data["actividades"] = $actividades->get_cron_class_stu($class_id,$us_id);
             require_once "views/actividades/visualiza_act.php";
         }
+        //Carga los datos del cronograma general de estudiante
+        public function get_cronograma_est(){
+            $crono_estudiante = new Actividades_Model();
+            $usuarios = new Usuarios_model();
+            $num_doc = $_SESSION['numero_docu'];
+            $name_doc = $_SESSION['tipo_docu'];
+            $user_id = $usuarios->get_usuarios($num_doc,$name_doc);
+            $data["cronograma_estudiante"] = $crono_estudiante->get_cron_est($num_doc, $name_doc);
+            
+            require_once "views/actividades/Cronograma_est.php";
+        }
 }
 ?>

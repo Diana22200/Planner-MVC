@@ -33,7 +33,7 @@
             <li><span class="negrilla">Correo:</span><?php echo $fila["email"];?></li>
             <li><span class="negrilla">Número de documento:</span><?php echo $_SESSION['numero_docu'];?></li>
             <li><span class="negrilla">Tipo de documento:</span><?php echo $_SESSION['tipo_docu'];?></li>
-            <li><a href="nombredoc.html" class="link">Cambiar Datos</a></li>
+<!--             <li><a href="nombredoc.html" class="link">Cambiar Datos</a></li> -->
         </ul>
         <?php 
             }?>

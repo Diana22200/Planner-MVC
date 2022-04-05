@@ -192,5 +192,21 @@ class Actividades_model{
         }
         return $this->actividades;
     }
+    //Carga la información del cronograma general de estudiante
+    public function get_cron_est($num_doc, $name_doc){
+        $sql="SELECT `type`, `title`, `deadline`, `activity`.`status`, `subject`, `qualification`.`score` 
+        FROM `surrogate_keys`.`class`
+        INNER JOIN `surrogate_keys`.`activity` ON `activity`.`classid` = `class`.`id`
+        INNER JOIN `surrogate_keys`.`qualification` ON `qualification`.`id` = `activity`.`id`
+        INNER JOIN `surrogate_keys`.`user` ON `user`.`id` = `qualification`.`Userid`
+        INNER JOIN `surrogate_keys`.`document` ON `user`.`documentid` = `document`.`id`
+        WHERE num_doc = $num_doc AND acronym_doc = '$name_doc'";
+        $resultado = $this->db->prepare($sql);
+        $resultado->execute();
+        while($row = $resultado->fetch(PDO::FETCH_ASSOC)){
+            $this->actividades[] = $row;
+        }
+        return $this->actividades;
+    }
 }
 ?>
