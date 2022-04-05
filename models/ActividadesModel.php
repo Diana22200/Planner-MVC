@@ -152,5 +152,31 @@ class Actividades_model{
             $resultado = $this->db->prepare($sql);
             $resultado->execute();
         }
+    //Mostrar información de cronograma general de instructor
+    public function get_cron_inst($user_id){
+        $sql="SELECT `activity`.`id`,
+            `activity`.`code`,
+            `activity`.`deadline`,
+            `activity`.`title`,   
+            `activity`.`status`
+        FROM `surrogate_keys`.`activity`
+        INNER JOIN `surrogate_keys`.`class` ON `class`.`id` =`activity`.classid
+        INNER JOIN `surrogate_keys`.`user_class` ON `user_class`.`classid` =`class`.`id`
+        INNER JOIN `surrogate_keys`.`user` ON `user`.id =`user_class`.Userid 
+        WHERE user.id=$user_id";
+        $resultado = $this->db->prepare($sql);
+        $resultado->execute();
+        while($row = $resultado->fetch(PDO::FETCH_ASSOC)){
+            $this->actividades[] = $row;
+        }
+        return $this->actividades;
+    }
+    //Eliminar nota del usuario cuando se elimina
+    public function eliminar_nota_us($id){
+        $sql="DELETE FROM `surrogate_keys`.`qualification`
+        WHERE `qualification`.`Userid`=$id;";
+        $resultado = $this->db->prepare($sql);
+        $resultado->execute();
+    }
 }
 ?>

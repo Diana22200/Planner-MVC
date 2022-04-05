@@ -109,5 +109,16 @@ class ActividadesController{
         $actividades->eliminar_act($id);
         echo"<script>alert('Se eliminó la calificación correctamente'); window.history.go(-1);</script>";
     }
+        //Carga los datos del cronograma general de instructor
+        public function get_cronograma_inst(){
+            $administrar_actividad = new Actividades_Model();
+            $usuarios = new Usuarios_model();
+            $num_doc = $_SESSION['numero_docu'];
+            $name_doc = $_SESSION['tipo_docu'];
+            $user_id = $usuarios->get_usuarios($num_doc,$name_doc);
+            $data["actividad_administrar"] = $administrar_actividad->get_cron_inst($user_id);
+            
+            require_once "views/actividades/Cronograma_inst.php";
+        }
 }
 ?>

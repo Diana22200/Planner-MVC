@@ -56,5 +56,12 @@ class Mensaje_model{
         $resultado = $this->db->prepare($sql);
         $resultado->execute();
     }
+    //Eliminar usuario mensaje al eliminar usuario
+    public function del_us_msg($id){
+        $sql="DELETE user_message FROM user_message 
+        WHERE user_message.Userid = $id";
+        $resultado = $this->db->prepare($sql);
+        $resultado->execute();
+    }
 }
 ?>

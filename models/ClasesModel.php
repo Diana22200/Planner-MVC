@@ -72,5 +72,12 @@ class Clases_model{
     
             return $row;
         }
+            //Eliminar usuario clase
+    public function del_user_class($id){
+        $sql="DELETE user_class 
+        FROM user_class WHERE user_class.Userid = $id";
+        $resultado = $this->db->prepare($sql);
+        $resultado->execute();
+    }
 }
 ?>
