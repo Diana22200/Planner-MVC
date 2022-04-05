@@ -25,8 +25,14 @@ class MensajeController{
 
         require_once "views/mensajes/mensaje_recibido.php";
     }
-    public function enviar_mensaje(){
-        require_once "views/mensajes/Enviar_mensaje.php";
+    public function mensajes_envio(){
+        $text=$_POST['text'];
+        $title=$_POST['title'];
+        $code = (RAND()*(99999-10000)+1);
+        $mensajes = new Mensaje_model();
+        $mensajes->insertar_mensaje($code, $title, $text);
+        echo"<script>alert('Se envió el mensaje!'); window.history.go(-2);</script>";
+
     }
     public function elim_mensaje_enviado(){
         require_once "models/mensaje_enviado_Model.php";
@@ -38,8 +44,8 @@ class MensajeController{
         $enviar_mensaje->eliminar_mensaje_recibido();
         require_once "views/mensajes/mensaje_recibido.php";
     }
-    public function estilos_css_enviar(){
-        require_once "assets/CSS/style_enviarmensaj.css";
+    public function message(){
+        require_once "views/mensajes/Enviar_mensaje.php";
     }
 }
 ?>

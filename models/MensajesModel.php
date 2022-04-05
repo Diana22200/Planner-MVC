@@ -32,15 +32,12 @@ class Mensaje_model{
         }
         return $this->mensaje_recibido;
     }
-    public function insertar_mensaje($text, $title){
+    public function insertar_mensaje($text, $title, $code){
 			
-        $sql ="INSERT INTO `message` (`id`, `text`, `shipping_date`, `title`, `code`)
-         VALUES (NULL, $text, current_timestamp(), $title, RAND()*(99999 - 00000)+1);";
+        $sql ="INSERT INTO `message` (`id`, `text`, `shipping_date`, `title`, `code`) 
+        VALUES (NULL, '$text', current_timestamp(), '$title', $code);";
         $resultado = $this->db->prepare($sql);
         $resultado->execute();
-        $row = $resultado->fetch(PDO::FETCH_ASSOC);
-        
-        return $row;
     }
     public function eliminar_mensaje_enviado(){
 			
@@ -53,6 +50,13 @@ class Mensaje_model{
 			
         $resultado = $this->db->query("INSERT INTO `message` (`id`, `text`, `shipping_date`, `title`, `code`)
          VALUES (NULL, $text, current_timestamp(), $title, RAND()*(99999 - 00000)+1);");
+        $resultado = $this->db->prepare($sql);
+        $resultado->execute();
+    }
+    //Eliminar usuario mensaje al eliminar usuario
+    public function del_us_msg($id){
+        $sql="DELETE user_message FROM user_message 
+        WHERE user_message.Userid = $id";
         $resultado = $this->db->prepare($sql);
         $resultado->execute();
     }

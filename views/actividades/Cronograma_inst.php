@@ -12,12 +12,11 @@
     <!--Cabecera-->
     <header class="cabecera centrar">
     <img class="logo" src="https://i.postimg.cc/KzWPXR4b/logo-planner-2-1.png">
-    <h1 class="inline_block letra_grande">Administrar actividades</h1>
+    <h1 class="inline_block letra_grande">Cronograma general</h1>
     </header>
     <!--Menú de Cronograma-->
         <ul class="contenedor-lista-botones">
-        <li class="lista-botns"><a href="index.php?c=clases&a=index" class="boton_naranja2 boton botn-izq">Atrás</a></li>
-        <li class="lista-botns lista-dos"><a href="index.php?c=actividades&a=anadir_act&id=<?php echo $data["id"];?>" class="boton_naranja2 boton botn-der">Añadir actividad</a></li>
+        <li class="lista-botns"><a href="index.php?c=usuarios&a=vinstructor" class="boton_naranja2 boton botn-izq">Atrás</a></li>
     </ul>
     <!--Información del Cronograma-->
     <main  class="inline_block cont_info_perfil_admin">
@@ -28,9 +27,6 @@
                     <th colspan="1"><strong>FECHA</strong></th>
                     <th colspan="1"><strong>ACTIVIDAD</strong></th>
                     <th colspan="1"><strong>ESTADO</strong></th>
-                    <th colspan="1"><strong>ELIMINAR</strong></th>
-                    <th colspan="1"><strong>MODIFICAR</strong></th>
-                    <th colspan="1"><strong>CALIFICAR</strong></th>
                  </tr>
                  <?php foreach($data["actividad_administrar"] as $dato){ ?>                 
                 <tr>
@@ -38,9 +34,6 @@
                     <td class="obj_tabl"><?php echo $dato["deadline"];?></td>
                     <td class="act_tabl"><?php echo $dato["title"];?></td>
                     <td class="estad_tabl"><?php echo $dato["status"];?></td>
-                    <td class="obj_tabl"><a href="index.php?c=actividades&a=eliminar&id=<?php echo $dato["id"];?>" class="act_del">Eliminar</a></td>
-                    <td class="obj_tabl"><a href="index.php?c=actividades&a=show_modificar&id=<?php echo $dato["id"];?>" class="act_mod">Modificar</a></td>
-                    <td class="obj_tabl"><a href="index.php?c=actividades&a=actividad_calf&id=<?php echo $dato["id"];?>" class="act_cal">Calificar</a></td>
                 
                 <tr>
                 <?php 

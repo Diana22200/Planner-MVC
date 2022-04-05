@@ -136,6 +136,7 @@ tr td {
 }
 tbody {
     background: white;
+    align-items: center;
 }
 td, th {
     border: black 2px solid;

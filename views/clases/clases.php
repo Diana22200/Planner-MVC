@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="assets/CSS/style.css">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mis clases</title>
@@ -19,8 +19,7 @@
             <li><a href="index.php?c=usuarios&a=vinstructor" class="boton boton_naranja2">Mi perfil</a></li>
             <li><a href="" class="boton_naranja2  boton">Clases</a></li>
             <li><a href="" class="boton_naranja2  boton">Cronograma</a></li>
-            <li><a href="" class="boton_naranja2  boton">Quejas y peticiones</a></li>
-            <li><a href="" class="boton_naranja2  boton">Añadir clase</a></li>
+            <li><a href="index.php?c=mensaje&a=recibido" class="boton_naranja2  boton">Quejas y peticiones</a></li>
             <li><a href="index.php?c=login&a=index&cerrar_sesion=1" class="boton_naranja2  boton">Cerrar sesión</a></li>
         </ul>
     </nav>
@@ -29,9 +28,10 @@
     <main  class="cont_clases">
     <!--Clase 1-->
      
-        <div class="clase centrar ">
-        <h2 class="border clase_titulo">Clase</h2>
+
         <?php foreach($data["clases"] as $dato){
+            echo "<div class='clase centrar'>";
+            echo "<h2 class='border clase_titulo'>Clase</h2>";
             echo "<ul>";
             echo "<li><span class='negrilla'>Nombre:</span>". $dato["names"]."</li>";
             echo "<li><span class='negrilla'>Apellido:</span>".$dato["surname"]."</li>";
@@ -39,11 +39,11 @@
             echo "<li><span class='negrilla'>Estado:</span>".$dato["status"]."</li>";
             echo "<li><span class='negrilla'>Materia:</span>".$dato["subject"]."</li>";
             echo "<a href='index.php?c=clases&a=show_modificar&id=".$dato["id"]."' class='boton_pequenio boton letra_mediana'>Modificar</a>";
-            echo "<a href='index.php?c=actividades&a=actividad_adm&id=".$dato["id"]."'>Entrar</a>";
+            echo "<a class='boton_pequenio boton letra_mediana' href='index.php?c=actividades&a=actividad_adm&id=".$dato["id"]."'>Entrar</a>";
             echo "</ul>";
+            echo "</div>";
         }?>
 
-        </div>
     </main>
 </body>
 </html>

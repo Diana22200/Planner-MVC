@@ -19,7 +19,7 @@
         <li><a href="#" onclick="javascript:history.go(-1)" class="boton_naranja2  boton">Atrás</a></li>
         <li><a href="index.php?c=mensaje&a=recibido" class="boton_naranja2  boton">Bandeja de entrada</a>
           <li><a href="index.php?c=mensaje&a=enviado" class="boton_naranja2  boton">Bandeja de salida</a>
-            <li><a href="index.php?c=mensaje&a=enviar_mensaje" class="boton_naranja2  boton">Enviar mensaje</a></li>
+            <li><a href="index.php?c=mensaje&a=message" class="boton_naranja2  boton">Enviar mensaje</a></li>
         </ul>
     </nav>
     <!--Información del Cronograma-->

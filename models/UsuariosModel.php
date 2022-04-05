@@ -39,5 +39,53 @@ class Usuarios_model{
             $id_doc = $row['id_do'];
             return $id_doc;
         }
+        //Obtener la información de los usuarios para modificar
+        public function get_us_adm_mod($id){
+            $sql="SELECT acronym_doc, num_doc, names, surname, user.id,status, type 
+            FROM `surrogate_keys`.`user` INNER JOIN `surrogate_keys`.document ON user.documentid = document.id 
+            INNER JOIN surrogate_keys.role ON role.id = user.Roleid
+            WHERE user.id=$id";
+            $resultado = $this->db->prepare($sql);
+            $resultado->execute();
+            $row = $resultado->fetch(PDO::FETCH_ASSOC);
+
+            return $row;
+        }
+        //Obtener la información de los usuarios para modificar
+        public function get_usuario_adm(){
+            $sql="SELECT acronym_doc, num_doc, names, surname, user.id, type 
+            FROM user INNER JOIN document ON user.documentid = document.id 
+            INNER JOIN surrogate_keys.role ON role.id = user.Roleid";
+            $resultado = $this->db->prepare($sql);
+            $resultado->execute();
+            while($row = $resultado->fetch(PDO::FETCH_ASSOC)){
+                $this->perfiles[] = $row;
+            }
+            return $this->perfiles;
+        }
+        //Modificar usuario desde administrador
+        public function modificar($num_doc,$id_doc,$status,$names,$surname,$id){
+            $sql="UPDATE surrogate_keys.user 
+            SET num_doc = $num_doc, documentid = $id_doc, 
+            status = '$status', names = '$names', 
+            surname = '$surname' WHERE id = $id";
+            $resultado = $this->db->prepare($sql);
+            $resultado->execute();
+        }
+        //Registrar administrador
+        public function registrar($num_doc,$id_doc,$name, $surname,$email,$password,$roleid){
+            $resultado = $this->db->prepare("INSERT INTO surrogate_keys.user(num_doc,documentid,status,names,surname,url_prof_pic,email,password,Roleid)
+            VALUES ('$num_doc', $id_doc, 'Activo', '$name', '$surname',
+            'https://www.onusanmiguel.com/wp-content/uploads/2021/04/unnamed.jpg'
+            , '$email', '$password', '3')");
+                $resultado->execute();
+        }
+        public function eliminar_us($id){
+
+            $sql="DELETE FROM `surrogate_keys`.`user`
+            WHERE id = $id";
+            $resultado = $this->db->prepare($sql);
+            $resultado->execute();
+        }
 }
 ?>

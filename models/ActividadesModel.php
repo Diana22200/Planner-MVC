@@ -28,29 +28,40 @@ class Actividades_model{
         return $this->actividades;
     }
 
-
-    public function get_actividad_calf(){
-        $id="3";
-        $sql="SELECT activity.title, user.names, user.surname, qualification.score 
-        FROM surrogate_keys.user 
-        INNER JOIN user_course ON user_course.Userid=user.id 
-        INNER JOIN course ON user_course.Courseid=course.id 
-        INNER JOIN qualification ON qualification.Userid=user.id 
-        INNER JOIN activity ON activity.id=qualification.Activityid 
-        WHERE course.code = 2251585 AND user.id = $id;";
+//cargar información de Calificar
+    public function get_actividad_calf($id){
+        $sql="SELECT user.names,
+        user.surname,
+        `activity`.`title`,
+       /*Traerlo como hidden */ 
+       `qualification`.`id`,
+        `qualification`.`score`
+    FROM `surrogate_keys`.`qualification`
+    INNER JOIN `user` ON `user`.id = qualification.Userid
+    INNER JOIN activity ON activity.id = qualification.Activityid
+        WHERE activity.id = $id ;";
         $resultado = $this->db->prepare($sql);
         $resultado->execute();
         while($row = $resultado->fetch(PDO::FETCH_ASSOC)){
-            $this->actividad[] = $row;
+            $this->actividades[] = $row;
         }
-        return $this->actividad;
+        return $this->actividades;
+    }
+    //calificar model
+    public function calificar($score,$id){
+        $sql="UPDATE `surrogate_keys`.`qualification`
+        SET
+        `score` = $score
+        WHERE `id` = $id";
+        $resultado = $this->db->prepare($sql);
+        $resultado->execute();
     }
     //Mostrar información de administrar actividades
     public function get_actividad_adm($user_id,$id){
         $sql="SELECT `activity`.`id`,
-        user.names,
+            user.names,
             `activity`.`code`,
-                `activity`.`deadline`,
+            `activity`.`deadline`,
             `activity`.`title`,   
             `activity`.`status`
         FROM `surrogate_keys`.`activity`
@@ -125,6 +136,63 @@ class Actividades_model{
         $classid);";
       $resultado = $this->db->prepare($sql);
       $resultado->execute();
+    }
+        //Eliminar nota de la actividad asociada
+        public function eliminar_nota($id){
+            $sql="DELETE FROM `surrogate_keys`.`qualification`
+            WHERE `qualification`.`Activityid`=$id;";
+            $resultado = $this->db->prepare($sql);
+            $resultado->execute();
+        }
+        //Eliminar actividad
+        public function eliminar_act($id){
+
+            $sql="DELETE FROM `surrogate_keys`.`activity`
+            WHERE id=$id;";
+            $resultado = $this->db->prepare($sql);
+            $resultado->execute();
+        }
+    //Mostrar información de cronograma general de instructor
+    public function get_cron_inst($user_id){
+        $sql="SELECT `activity`.`id`,
+            `activity`.`code`,
+            `activity`.`deadline`,
+            `activity`.`title`,   
+            `activity`.`status`
+        FROM `surrogate_keys`.`activity`
+        INNER JOIN `surrogate_keys`.`class` ON `class`.`id` =`activity`.classid
+        INNER JOIN `surrogate_keys`.`user_class` ON `user_class`.`classid` =`class`.`id`
+        INNER JOIN `surrogate_keys`.`user` ON `user`.id =`user_class`.Userid 
+        WHERE user.id=$user_id";
+        $resultado = $this->db->prepare($sql);
+        $resultado->execute();
+        while($row = $resultado->fetch(PDO::FETCH_ASSOC)){
+            $this->actividades[] = $row;
+        }
+        return $this->actividades;
+    }
+    //Eliminar nota del usuario cuando se elimina
+    public function eliminar_nota_us($id){
+        $sql="DELETE FROM `surrogate_keys`.`qualification`
+        WHERE `qualification`.`Userid`=$id;";
+        $resultado = $this->db->prepare($sql);
+        $resultado->execute();
+    }
+
+    public function get_cron_est($num_doc, $name_doc){
+        $sql="SELECT `type`, `title`, `deadline`, `activity`.`status`, `subject`, `qualification`.`score` 
+        FROM `surrogate_keys`.`class`
+        INNER JOIN `surrogate_keys`.`activity` ON `activity`.`classid` = `class`.`id`
+        INNER JOIN `surrogate_keys`.`qualification` ON `qualification`.`id` = `activity`.`id`
+        INNER JOIN `surrogate_keys`.`user` ON `user`.`id` = `qualification`.`Userid`
+        INNER JOIN `surrogate_keys`.`document` ON `user`.`documentid` = `document`.`id`
+        WHERE num_doc = $num_doc AND acronym_doc = '$name_doc'";
+        $resultado = $this->db->prepare($sql);
+        $resultado->execute();
+        while($row = $resultado->fetch(PDO::FETCH_ASSOC)){
+            $this->actividades[] = $row;
+        }
+        return $this->actividades;
     }
 }
 ?>

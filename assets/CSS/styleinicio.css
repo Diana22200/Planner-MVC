@@ -89,3 +89,8 @@ div{
 .boton:active {
     transform: scale(.95);
 }
+.centrar{
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+}

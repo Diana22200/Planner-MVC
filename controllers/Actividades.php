@@ -20,10 +20,11 @@ class ActividadesController{
         $data["actividades"] = $actividades->show_act_inst($user_id,$id);
             require_once "views/actividades/Clase_1.php";
     }
-
+    //Trae la información visual de modificar calificacion
     public function actividad_calf($id){
-        $actividad_get = new Actividades_Model();
-        $data["actividad_calf"] = $actividad_get->get_actividad_calf();
+        $actividades = new Actividades_Model();
+       
+        $data["actividad_calf"] = $actividades->get_actividad_calf($id);
         
         require_once "views/actividades/Calificar_actividad.php";
     }
@@ -86,12 +87,48 @@ class ActividadesController{
 
             echo"<script>alert('Se modifico la actividad correctamente'); window.history.go(-2);</script>";
     }
+    //Calificar
+    public function calificar(){
+        $score=$_POST['score'];
+        //id de califación
+        $id=$_POST['id_calificacion'];
+        $actividades = new Actividades_model();
+        $actividades->calificar($score,$id);
+        echo"<script>alert('Se añadió la calificación correctamente'); window.history.go(-1);</script>";
+    }
     // public function fn_modif_act($id){
     //     require_once "models/actividad_Model.php";
     //     $actividad_mod_fun = new actividad_Model();
     //     $data["modificar_actividad"] = $actividad_mod_fun->get_modificar_actividad($id);
     //     require_once "views/actividades/modificar_actividad.php";
     // }
-
+    //Eliminar
+    public function eliminar($id){
+        $actividades = new Actividades_model();
+        $actividades->eliminar_nota($id);
+        $actividades->eliminar_act($id);
+        echo"<script>alert('Se eliminó la calificación correctamente'); window.history.go(-1);</script>";
+    }
+        //Carga los datos del cronograma general de instructor
+        public function get_cronograma_inst(){
+            $administrar_actividad = new Actividades_Model();
+            $usuarios = new Usuarios_model();
+            $num_doc = $_SESSION['numero_docu'];
+            $name_doc = $_SESSION['tipo_docu'];
+            $user_id = $usuarios->get_usuarios($num_doc,$name_doc);
+            $data["actividad_administrar"] = $administrar_actividad->get_cron_inst($user_id);
+            
+            require_once "views/actividades/Cronograma_inst.php";
+        }
+        public function get_cronograma_est(){
+            $crono_estudiante = new Actividades_Model();
+            $usuarios = new Usuarios_model();
+            $num_doc = $_SESSION['numero_docu'];
+            $name_doc = $_SESSION['tipo_docu'];
+            $user_id = $usuarios->get_usuarios($num_doc,$name_doc);
+            $data["cronograma_estudiante"] = $crono_estudiante->get_cron_est($num_doc, $name_doc);
+            
+            require_once "views/actividades/Cronograma_est.php";
+        }
 }
 ?>

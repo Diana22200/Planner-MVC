@@ -10,15 +10,15 @@
 <body class="fondo2">
     <!--Cabecera-->
     <header class="cabecera centrar">
-    <img class="logo" src="https://i.postimg.cc/Gp03GJQR/LOGOSENApequenio.png">
+    <img class="logo" src="https://i.postimg.cc/Y2gQQ63p/logopequenito.png">
     <h1 class="inline_block letra_grande">Mi perfil</h1>
     </header>
     <!--Menú de navegación estudiante-->
     <nav class="inline_block menu_perfil letra_mediana">
         <ul>
-        <li><a href="perfil_estudiante.php" class="boton boton_naranja2">Mi perfil</a></li>
+        <li><a href="index.php?c=usuarios&a=vaprendiz" class="boton boton_naranja2">Mi perfil</a></li>
         <li><a href="clases_estudiante.php" class="boton_naranja2  boton">Clases</a></li>
-        <li><a href="cronograma_general.php" class="boton_naranja2  boton">Cronograma</a></li>
+        <li><a href="index.php?c=actividades&a=get_cronograma_est" class="boton_naranja2  boton">Cronograma</a></li>
         <li><a href="index.php?c=mensaje&a=recibido" class="boton_naranja2  boton">Quejas y peticiones</a></li>
         <!-- <li><a href="anadir_clase_estudiante.php" class="boton_naranja2  boton">Añadir clase</a></li> -->
         <li><a href="index.php?c=login&a=index&cerrar_sesion=1" class="boton_naranja2  boton">Cerrar sesión</a></li>
