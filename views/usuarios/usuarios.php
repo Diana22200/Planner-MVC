@@ -14,17 +14,16 @@
     <!--Cabecera-->
     <header class="cabecera centrar">
         <img class="logo" src="https://i.postimg.cc/KzWPXR4b/logo-planner-2-1.png" width="90px">
-        <h1 class="inline_block letra_grande">Modificar Usuario</h1>
+        <h1 class="inline_block letra_grande">Administrar Usuarios</h1>
         </header>
     <nav class="inline_block letra_mediana">
         <section class="inline_block">
             <div class="columna_izquierda">
-            <li><a href="perfil_admin.php" class="botton">Mi perfil</a></li>
-            <li><a href="eliminar_usuario.php" class="botton">Eliminar usuario</a></li>
-            <li><a href="crear_admin.php" class="botton">Crear administrador</a></li>
-            <li><a href="mod_usuario.php" class="botton">Modificar usuario</a></li>
-            <li><a href="Quejas_pet_admin.php" class="botton">Quejas y peticiones</a></li>
-            <li><a href="iniciar_sesion.php?cerrar_sesion=1" class="botton">Cerrar sesión</a></li>
+            <li><a href="index.php?c=usuarios&a=index" class="botton">Mi perfil</a></li>
+            <li><a href="index.php?c=usuarios&a=get_usuario_adm" class="botton">administrar usuarios</a></li>
+            <li><a href="index.php?c=usuarios&a=registrar" class="botton">Crear administrador</a></li>
+            <li><a href="index.php?c=mensaje&a=recibido" class="botton">Quejas y peticiones</a></li>
+            <li><a href="index.php?c=login&a=index&cerrar_sesion=1" class="botton">Cerrar sesión</a></li>
             </div>
         </section>
         </nav>
