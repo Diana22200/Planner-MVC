@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--bootstrap: Dependencias
+ colors: la consola muestra colores
+ verbose: mostrar más información de las pruebas
+ stopOnFailure: dejar de ejecutar las pruebas ante un error
+-->
+<phpunit bootstrap="vendor/autoload.php"
+        colors="true"
+        verbose="true"
+        stopOnFailure="False">
+        <testsuites>
+        <testsuite name= "Test suite">
+        <!--Directorio donde estan las pruebas-->
+        <directory>tests</directory>
+        </testsuite>
+        </testsuites>
+</phpunit>

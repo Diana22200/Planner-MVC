@@ -43,12 +43,12 @@
                     <th colspan="1"><strong>MODIFICAR</strong></th>
                  </tr>
             <tr>
-                <td><input width="150px" style="padding: 6px; text-align: center;" value="<?php echo $data["perfiles"]["acronym_doc"];?>"  name="acronym_doc"></td>
-                <td><input width="150px" style="padding: 6px; text-align: center;" value="<?php echo $data["perfiles"]["num_doc"];?>" name="num_doc" ></td>
-                <td><input name="names" width="150px" style="padding: 6px; text-align: center;" value="<?php echo $data["perfiles"]["names"];?>"></td>
-                <td><input name="surname" width="150px" style="padding: 6px; text-align: center;" value="<?php echo $data["perfiles"]["surname"];?>"></td>
-                <td><input name="status" width="150px" style="padding: 6px; text-align: center;" value="<?php echo $data["perfiles"]["status"];?>"></td>
-                <td><input name="type" width="150px" style="padding: 6px; text-align: center;" value="<?php echo $data["perfiles"]["type"];?>"></td>
+                <td><input width="150px" style=" text-align: center;" value="<?php echo $data["perfiles"]["acronym_doc"];?>"  name="acronym_doc"></td>
+                <td><input width="150px" style=" text-align: center;" value="<?php echo $data["perfiles"]["num_doc"];?>" name="num_doc" ></td>
+                <td><input name="names" width="150px" style=" text-align: center;" value="<?php echo $data["perfiles"]["names"];?>"></td>
+                <td><input name="surname" width="150px" style=" text-align: center;" value="<?php echo $data["perfiles"]["surname"];?>"></td>
+                <td><input name="status" width="150px" style=" text-align: center;" value="<?php echo $data["perfiles"]["status"];?>"></td>
+                <td><input name="type" width="150px" style=" text-align: center;" value="<?php echo $data["perfiles"]["type"];?>"></td>
                 <input name="id" type="hidden" value="<?php echo $data["id"];?>">
                 <input name="id" class="hide" value="<?php echo $row["id"];?>">
                 <td><input type="submit" value="Modificar" class=""></td>
