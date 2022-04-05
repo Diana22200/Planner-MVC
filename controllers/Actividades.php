@@ -120,5 +120,18 @@ class ActividadesController{
             
             require_once "views/actividades/Cronograma_inst.php";
         }
+        //Llevar a la visualizacion de actividades y traer los datos
+        public function get_act_std($id){
+            $actividades = new Actividades_model();
+            $usuarios = new Usuarios_model();
+            $num_doc = $_SESSION['numero_docu'];
+            $name_doc = $_SESSION['tipo_docu'];
+             //Traer el id del usuario
+            $us_id=$usuarios->get_usuarios($num_doc,$name_doc);
+            $class_id = $id;
+            $data["id"] = $id;
+            $data["actividades"] = $actividades->get_cron_class_stu($class_id,$us_id);
+            require_once "views/actividades/visualiza_act.php";
+        }
 }
 ?>

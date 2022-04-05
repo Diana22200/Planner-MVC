@@ -43,5 +43,22 @@ class Fichas_model{
             $resultado = $this->db->prepare($sql);
             $resultado->execute();
     }
+    //Sacar la ficha de la clase de estudiante
+    public function ficha_class_std($num_doc,$name_doc){
+        $sql="SELECT course.code as code_course FROM user 
+        INNER JOIN surrogate_keys.document 
+        ON user.documentid = document.id 
+        INNER JOIN user_course 
+        ON user_course.Userid = user.id 
+        INNER JOIN course 
+        ON course.id = user_course.Courseid 
+        WHERE num_doc = $num_doc 
+        AND acronym_doc = '$name_doc';";
+        $resultado = $this->db->prepare($sql);
+        $resultado->execute();
+        $row = $resultado->fetch(PDO::FETCH_ASSOC);
+        $code_course = $row['code_course'];
+        return $code_course;
+    }
 }
 ?>

@@ -79,5 +79,22 @@ class Clases_model{
         $resultado = $this->db->prepare($sql);
         $resultado->execute();
     }
+    //Cargar información en clases estudiante
+    public function info_class_std($course){
+        $sql="SELECT names, surname,`class`.`code`,class.id, program_name FROM surrogate_keys.user  
+        INNER JOIN surrogate_keys.document ON user.documentid = document.id 
+        INNER JOIN surrogate_keys.user_class ON user_class.Userid = user.id 
+        INNER JOIN surrogate_keys.class ON user_class.classid = class.id 
+        INNER JOIN surrogate_keys.course_class ON class.id= course_class.id_class
+        INNER JOIN surrogate_keys.course ON course_class.id_course = course.id
+        INNER JOIN surrogate_keys.mode ON course.Modeid = mode.id  
+        WHERE `course`.`code`=$course;";
+        $resultado = $this->db->prepare($sql);
+        $resultado->execute();
+        while($row = $resultado->fetch(PDO::FETCH_ASSOC)){
+            $this->clases[] = $row;
+        }
+        return $this->clases;
+    }
 }
 ?>

@@ -178,5 +178,19 @@ class Actividades_model{
         $resultado = $this->db->prepare($sql);
         $resultado->execute();
     }
+    //Carga la información del cronograma por clase
+    public function get_cron_class_stu($class_id,$us_id){
+        $sql="SELECT deadline, title, activity.status, score 
+        FROM `activity` INNER JOIN qualification 
+        on activity.id=qualification.id
+        INNER JOIN class on class.id=activity.classid
+        WHERE class.id=$class_id and qualification.Userid=$us_id;";
+        $resultado = $this->db->prepare($sql);
+        $resultado->execute();
+        while($row = $resultado->fetch(PDO::FETCH_ASSOC)){
+            $this->actividades[] = $row;
+        }
+        return $this->actividades;
+    }
 }
 ?>

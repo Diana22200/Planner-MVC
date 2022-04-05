@@ -92,6 +92,16 @@ class ClasesController{
         }else{
             echo"<script>alert('No se pudo modificar la clase.'); window.history.go(-1);</script>";
         }
-            }
+            
+    }
+        public function clases_stu(){
+            $clases = new Clases_model();
+            $fichas= new Fichas_model();
+            $num_doc = $_SESSION['numero_docu'];
+            $name_doc = $_SESSION['tipo_docu'];
+            $ficha= $fichas->ficha_class_std($num_doc,$name_doc);
+            $data["clases"] = $clases->info_class_std($ficha);
+            require_once "views/clases/clases_estudiante.php";
+        }
 }
 ?>
