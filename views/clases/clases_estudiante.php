@@ -20,7 +20,7 @@
             <li><a href="index.php?c=clases&a=clases_stu" class="boton_naranja2  boton">Clases</a></li>
             <li><a href="index.php?c=actividades&a=get_cronograma_est" class="boton_naranja2  boton">Cronograma</a></li>
             <li><a href="Quejas_pet_estudiante.php" class="boton_naranja2  boton">Quejas y peticiones</a></li>
-            <li><a href="iniciar_sesion.php?cerrar_sesion=1" class="boton_naranja2  boton">Cerrar sesión</a></li>
+            <li><a href="index.php?c=login&a=index&cerrar_sesion=1" class="boton_naranja2  boton">Cerrar sesión</a></li>
             </ul>
     </nav>
 <!--Información de Clases Estudiante-->
