@@ -93,6 +93,7 @@ nav{
 
 #tabla {
     border-collapse: collapse;
+    position:absolute;
 }
 tbody {
     background: white;

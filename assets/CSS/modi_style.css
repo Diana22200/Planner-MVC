@@ -121,3 +121,6 @@ tr, td {
 .hide{
     visibility: hidden;
 }
+header{
+    width:105%;
+}
